@@ -1,0 +1,32 @@
+{
+  "name": "contextpi-application",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Contextπ — Business-Context-Aware Dynamic API Test Generation Engine & NexaSupply Demo Target",
+  "private": true,
+  "scripts": {
+    "setup": "node scripts/install-all.js",
+    "install:contextpi": "npm --prefix contextpi install",
+    "install:nexasupply": "npm --prefix nexasupply install",
+    "build": "node scripts/build-all.js",
+    "build:contextpi": "npm --prefix contextpi run build",
+    "build:nexasupply": "npm --prefix nexasupply run build",
+    "seed": "node scripts/seed.js",
+    "start": "node scripts/start-all.js",
+    "start:all": "node scripts/start-all.js",
+    "start:contextpi": "npm --prefix contextpi run start",
+    "start:nexasupply": "npm --prefix nexasupply run start",
+    "verify": "node scripts/verify.js"
+  },
+  "keywords": [
+    "contextpi",
+    "playwright",
+    "api-testing",
+    "mongodb",
+    "ai-repair",
+    "ps10",
+    "hackathon"
+  ],
+  "author": "SixthSense Team",
+  "license": "MIT"
+}

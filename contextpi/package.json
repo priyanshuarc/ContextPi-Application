@@ -1,0 +1,39 @@
+{
+  "name": "context-pi",
+  "version": "1.0.0",
+  "description": "Contextπ - Business-Context API Test Generation System",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/api/server.js",
+    "dev": "node dist/api/server.js",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test --test-concurrency=1 tests/unit/*.test.ts tests/integration/*.test.ts",
+    "test:reset": "node --import tsx scripts/resetDatabase.ts",
+    "test:e2e:clean": "node --import tsx scripts/runCleanE2E.ts",
+    "test:e2e:stability": "node --import tsx scripts/runStabilityE2E.ts"
+  },
+  "keywords": [
+    "testing",
+    "api",
+    "playwright",
+    "mongodb",
+    "context-driven"
+  ],
+  "author": "T31 - SixthSense",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mongodb": "^6.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^20.11.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
+}

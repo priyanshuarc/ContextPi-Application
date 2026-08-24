@@ -1,0 +1,44 @@
+# Node & Dependencies
+node_modules/
+package-lock.json.log
+
+# Build Outputs
+dist/
+.dist/
+*.tsbuildinfo
+
+# Environment & Secrets
+.env
+.env.local
+*.pem
+*.key
+
+# Logs & Temporary Execution State
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test Reports & Local Execution Artifacts
+test-output/
+test-results/
+playwright-report/
+coverage/
+.nyc_output/
+
+# OS & Editor State
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Target Application Binaries & Zip Archives
+mongodb.zip
+mongodb-bin/
+memory-db*
+
+# Keep placeholder directories intact
+!contextpi/generated-tests/.gitkeep
+!contextpi/reports/.gitkeep

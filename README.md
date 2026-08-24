@@ -4,7 +4,7 @@
 [![Playwright API](https://img.shields.io/badge/Playwright-HTTP%20API-green.svg)](https://playwright.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**Contextπ (T31 — SixthSense)** is an application-agnostic, business-context-aware API test generation and self-healing execution platform.
+Contextπ (T31 — SixthSense) is an application-agnostic, business-context-aware API test generation and self-healing execution platform.
 
 It discovers application context from MongoDB and the target API contract, including schemas, fields, data types, enums, relationships, validation rules, business rules, and registered functions. It then builds a traceable test catalogue, generates Playwright TypeScript API tests, executes those tests against a real target server or a self-contained synthetic adapter, explains failures, and can perform safe AI-assisted repair of eligible failures.
 
@@ -12,19 +12,19 @@ It discovers application context from MongoDB and the target API contract, inclu
 
 # 1. Fresh Setup — Start Here
 
-This section is for a manager or evaluator who has **just cloned the GitHub repository** and has never run the project before.
+This section is written for a manager/evaluator who has **just cloned this repository** and is running it for the first time.
 
 ## Prerequisites
 
-Install these on the machine before starting:
+Install:
 
-- **Node.js** (LTS recommended)
+- **Node.js LTS**
 - **npm** (included with Node.js)
 - **MongoDB** for Live Mode
 
-MongoDB is required only for the Live NexaSupply demonstration. Adapter Mode is self-contained and does not require MongoDB.
+MongoDB is required only for the bundled NexaSupply Live Mode demonstration. Adapter Mode is self-contained and does not require MongoDB.
 
-The project uses these ports:
+The project uses:
 
 | Service | URL | Port | Purpose |
 |---|---|---:|---|
@@ -34,8 +34,6 @@ The project uses these ports:
 | MongoDB | mongodb://127.0.0.1:27017 | 27017 | Live target database |
 
 ## Step 1 — Clone the Repository
-
-Clone this repository and enter the repository root:
 
 ```bash
 git clone <GITHUB_REPOSITORY_URL>
@@ -50,8 +48,6 @@ ContextPi Application/
 
 ## Step 2 — Install All Dependencies
 
-Run:
-
 ```bash
 npm run setup
 ```
@@ -63,8 +59,6 @@ This installs dependencies for:
 - NexaSupply target application
 
 ## Step 3 — Build the Complete Project
-
-Run:
 
 ```bash
 npm run build
@@ -78,29 +72,146 @@ This builds:
 
 Do not continue if the build fails.
 
-## Step 4 — Start MongoDB
+---
 
-For Live Mode, make sure MongoDB is running on:
+# 2. MongoDB Setup
+
+MongoDB is required for **Live Mode**.
+
+The expected local address is:
 
 ```text
 mongodb://127.0.0.1:27017
 ```
 
-On Windows, a MongoDB service installation can be checked with:
+The bundled NexaSupply database is:
+
+```text
+nexasupply_db
+```
+
+## Windows — Check MongoDB Service
+
+Open **PowerShell**.
+
+Check the service:
 
 ```powershell
 Get-Service MongoDB
 ```
 
-or:
+You should see:
+
+```text
+Status   Name      DisplayName
+------   ----      -----------
+Running  MongoDB   MongoDB Server (MongoDB)
+```
+
+You can also use:
 
 ```cmd
 sc query MongoDB
 ```
 
-## Step 5 — Seed the Demo Target
+## Windows — Start MongoDB
 
-Run:
+If the service is installed and stopped, open **PowerShell as Administrator** and run:
+
+```powershell
+Start-Service MongoDB
+```
+
+Then verify:
+
+```powershell
+Get-Service MongoDB
+```
+
+and:
+
+```powershell
+Get-NetTCPConnection -LocalPort 27017 -State Listen
+```
+
+Port `27017` should be listening.
+
+### If `Start-Service MongoDB` fails
+
+If Windows reports an error such as:
+
+```text
+Cannot open MongoDB service on computer '.'
+```
+
+or:
+
+```text
+Access is denied
+```
+
+first make sure PowerShell is running **as Administrator**.
+
+Then inspect the installed MongoDB service configuration:
+
+```powershell
+sc.exe qc MongoDB
+```
+
+Also inspect the MongoDB configuration file:
+
+```powershell
+Get-Content "C:\Program Files\MongoDB\Server\8.3\bin\mongod.cfg"
+```
+
+The exact installation path may differ depending on the MongoDB version.
+
+### If `mongod` / `mongosh` is not recognized
+
+This does **not necessarily mean MongoDB is missing**. Windows may simply not have MongoDB's `bin` directory in `PATH`.
+
+Check the installation directory, for example:
+
+```cmd
+dir "C:\Program Files\MongoDB\Server" /ad
+```
+
+Then:
+
+```cmd
+dir "C:\Program Files\MongoDB\Server\8.3\bin"
+```
+
+A typical installation contains:
+
+```text
+mongod.exe
+mongos.exe
+mongod.cfg
+```
+
+The MongoDB server can be started using the installed Windows service or the full path to `mongod.exe`.
+
+### Recommended approach
+
+For evaluator machines, the preferred approach is:
+
+1. Install MongoDB as a Windows service.
+2. Start the `MongoDB` service as Administrator.
+3. Verify that port `27017` is listening.
+4. Run:
+
+```bash
+npm run seed
+```
+
+Do not place MongoDB binaries or ZIP archives inside this GitHub repository.
+
+---
+
+# 3. Seed the Live Demo Target
+
+After MongoDB is running:
 
 ```bash
 npm run seed
@@ -118,17 +229,19 @@ This creates the NexaSupply demonstration environment, including:
 - formSchemas
 - functionRegistry
 
-The seed establishes valid relationships between dependent records.
+The seed creates valid relationships between dependent records.
 
-## Step 6 — Check System Readiness
+---
 
-Run:
+# 4. Verify the Environment
+
+Before starting the full application:
 
 ```bash
 npm run verify
 ```
 
-A ready environment should report:
+A fully running environment should report:
 
 ```text
 MongoDB (27017):          OK
@@ -139,17 +252,19 @@ Environment Templates:    OK
 Build Artifacts:          OK
 ```
 
-If the frontend is not started yet, `5173` may show `NOT STARTED`; this is expected before Step 7.
+If you run `npm run verify` before `npm run start`, the frontend and backend may show `NOT STARTED`. That is expected.
 
-## Step 7 — Start the Complete System
+---
 
-Run:
+# 5. Start the Complete System
+
+Start all application services from the repository root:
 
 ```bash
 npm run start
 ```
 
-The root launcher starts all three application services:
+The launcher starts:
 
 ```text
 NexaSupply        → http://localhost:3000
@@ -157,34 +272,35 @@ Contextπ Backend  → http://localhost:3001
 Contextπ Frontend → http://localhost:5173
 ```
 
-Then open:
+Open:
 
 **http://localhost:5173**
 
 ## Quick Health Checks
 
-You can independently verify:
+NexaSupply:
 
 ```text
-NexaSupply:
 http://localhost:3000/health
+```
 
-Contextπ Backend:
+Contextπ backend:
+
+```text
 http://localhost:3001/api/health
+```
 
-Contextπ Frontend:
+Contextπ frontend:
+
+```text
 http://localhost:5173/
 ```
 
-At this point the complete project is ready to use.
-
 ---
 
-# 2. What Contextπ Does
+# 6. What Contextπ Does
 
 Contextπ changes API testing from manually writing test cases to **understanding the target application's context first**.
-
-The overall process is:
 
 ```text
 Target Application
@@ -214,13 +330,13 @@ Re-execution
 Final Results & Reports
 ```
 
-The important principle is:
+The core principle is:
 
-> **Contextπ decides what should be tested from the application's discovered context, then proves those tests by executing them.**
+> **Contextπ determines what should be tested from discovered application context, then proves those tests through execution.**
 
 ---
 
-# 3. Repository Structure
+# 7. Repository Structure
 
 ```text
 ContextPi Application/
@@ -243,7 +359,7 @@ ContextPi Application/
 ├── nexasupply/                 # Demo / validation target application
 │   ├── src/                    # REST API
 │   ├── seed/                   # Database seeding
-│   ├── tests/                  # Target application integration tests
+│   ├── tests/                  # Target integration tests
 │   └── package.json
 │
 ├── scripts/                    # Repository automation
@@ -262,9 +378,9 @@ ContextPi Application/
 
 ---
 
-# 4. Main Demo Flow
+# 8. Main Demo Flow
 
-Once the system is running at **http://localhost:5173**, the recommended demonstration is:
+Once the system is running at **http://localhost:5173**:
 
 ```text
 1. Connect Target
@@ -290,18 +406,14 @@ Once the system is running at **http://localhost:5173**, the recommended demonst
 11. Open Reports
 ```
 
-The sections below explain each stage.
-
 ---
 
-# 5. Step 1 — Connect to a Target
+# 9. Step 1 — Connect to the Target
 
-Contextπ can operate against a target application's discovered context.
-
-For the bundled Live Mode demonstration, the target is NexaSupply:
+For the bundled Live Mode demonstration, use NexaSupply:
 
 ```text
-MongoDB:
+MongoDB URI:
 mongodb://127.0.0.1:27017
 
 Database:
@@ -311,15 +423,15 @@ Target API:
 http://localhost:3000
 ```
 
-Contextπ should remain application-agnostic; NexaSupply is only the bundled validation target.
+Contextπ remains application-agnostic; NexaSupply is the included validation target.
 
 ---
 
-# 6. Step 2 — Load Application Context
+# 10. Step 2 — Load Application Context
 
-When Contextπ loads the target context, it discovers information such as:
+Contextπ discovers information such as:
 
-- collections / schemas
+- schemas / collections
 - fields
 - data types
 - mandatory fields
@@ -328,18 +440,18 @@ When Contextπ loads the target context, it discovers information such as:
 - relationships / references
 - business rules
 - registered functions
-- API contract information
+- API endpoint contract
 - sample data where available
 
-This is the foundation for all downstream test generation.
+This discovered context drives the test catalogue.
 
 ---
 
-# 7. Step 3 — Explore the Context
+# 11. Step 3 — Explore the Context
 
-Use **Context Explorer** to inspect what Contextπ learned about the application.
+Use **Context Explorer** to inspect the application's discovered structure.
 
-For example, the target may expose:
+The bundled target includes:
 
 ```text
 suppliers
@@ -351,29 +463,29 @@ orders
 shipments
 ```
 
-with relationships such as:
+Example relationships:
 
 ```text
-items.supplierId    → suppliers
-items.warehouseId   → warehouses
-orders.customerId   → customers
-orders.itemId       → items
-orders.warehouseId  → warehouses
-shipments.orderId   → orders
-shipments.warehouseId → warehouses
+items.supplierId       → suppliers
+items.warehouseId      → warehouses
+orders.customerId      → customers
+orders.itemId          → items
+orders.warehouseId     → warehouses
+shipments.orderId      → orders
+shipments.warehouseId  → warehouses
 ```
 
-The UI should also show field-level types, required/optional status, constraints, enums, and related metadata.
+Field types, required/optional state, constraints, enums and function metadata are also available.
 
 ---
 
-# 8. Step 4 — Generate the Test Catalogue
+# 12. Step 4 — Generate the Test Catalogue
 
-Open the **Test Generator** and generate the catalogue.
+Open **Test Generator** and generate the test catalogue.
 
-Contextπ creates a structured, traceable catalogue of test intentions instead of immediately producing opaque code.
+The catalogue contains traceable test intentions rather than immediately producing opaque code.
 
-Typical categories include:
+Typical test categories:
 
 - CRUD
 - FIELD_VALIDATION
@@ -383,7 +495,7 @@ Typical categories include:
 - CUSTOM_FUNCTION
 - REGISTRY
 
-Each catalogue entry can contain:
+Catalogue entries can contain:
 
 - Test ID
 - Category
@@ -394,49 +506,45 @@ Each catalogue entry can contain:
 - Reasoning
 - Dependencies
 - HTTP method
-- target route
-- expected result
-- payload template
+- Target route
+- Expected result
+- Payload template
 
 ---
 
-# 9. Step 5 — Review and Approve
+# 13. Step 5 — Review and Approve
 
 Open **Test Catalogue**.
 
 Review the generated tests and approve the selected catalogue.
 
-This creates an explicit review boundary before code generation and execution.
-
-Only approved catalogue entries proceed to Playwright generation.
+Only approved entries proceed to executable Playwright generation.
 
 ---
 
-# 10. Step 6 — Generate Playwright Tests
+# 14. Step 6 — Generate Playwright Tests
 
-Open **Generated Tests** and generate the Playwright specifications.
+Open **Generated Tests** and generate the Playwright TypeScript specifications.
 
-Contextπ produces TypeScript `.spec.ts` files containing the executable API tests.
+Generated tests include:
 
-The generated tests include the information needed to:
+- HTTP request
+- resolved route
+- payload
+- expected status
+- response assertions
+- dependency lifecycle
+- traceability metadata
 
-- construct the request
-- resolve the target route
-- build the payload
-- maintain dependencies
-- assert HTTP status
-- perform response assertions
-- preserve traceability
-
-The generated tests use Playwright's HTTP API capabilities rather than browser DOM testing.
+Contextπ uses Playwright's HTTP API capabilities for API testing.
 
 ---
 
-# 11. Step 7 — Run the Test Suite
+# 15. Step 7 — Run the Test Suite
 
-Open **Test Runs** and run the generated Playwright API suite.
+Open **Test Runs** and execute the generated Playwright API suite.
 
-The initial run reports genuine execution results:
+Results include:
 
 ```text
 Executed Tests
@@ -446,44 +554,44 @@ Pass Rate
 Duration
 ```
 
-The tests are executed against the configured target API.
-
-For Live Mode with NexaSupply:
+For Live Mode, execution is against:
 
 ```text
 http://localhost:3000
 ```
 
+Pass/fail results are derived from actual execution.
+
 ---
 
-# 12. Step 8 — Understand Any Test
+# 16. Step 8 — Understand a Test
 
 Every test provides a **Description / Explain** action.
 
-Use it to understand:
+Use it to see:
 
 - what the test checks
-- why it exists
+- why the test exists
 - target entity
 - category
 - priority
-- source and source reference
+- source/reference
 - dependencies
 - HTTP method
 - endpoint
 - payload
 - expected result
-- related schema fields
+- discovered schema information
 
-The explanation view is designed to make a test understandable without reading the generated TypeScript code.
+This is intended to make individual tests understandable without reading the generated TypeScript.
 
 ---
 
-# 13. Step 9 — Investigate Failures
+# 17. Step 9 — Investigate Failures
 
 For failed tests, use **Trace**.
 
-The Failure Trace view presents a structured explanation including:
+The Failure Trace includes:
 
 - human-readable summary
 - what happened
@@ -493,20 +601,18 @@ The Failure Trace view presents a structured explanation including:
 - request information
 - failed assertion
 - location
-- root cause
+- likely root cause
 - suggested next action
 - traceability
 - raw Playwright error
 
-This keeps both a judge-friendly explanation and the underlying technical evidence.
+The technical error remains available for debugging.
 
 ---
 
-# 14. Step 10 — AI-Assisted Analysis and Repair
+# 18. Step 10 — AI-Assisted Analysis and Repair
 
-When AI assistance is enabled, Contextπ can use the hackathon-provided Qwen3 Coder model for eligible failure analysis and repair.
-
-The repair lifecycle is:
+When AI assistance is enabled, Contextπ can use the hackathon-provided Qwen3 Coder model for eligible failure diagnosis and safe repair.
 
 ```text
 Real Playwright Failure
@@ -524,15 +630,13 @@ Re-execute Failed Test
 Merge Final Result
 ```
 
-The repair engine is constrained by discovered metadata and safety validation.
+A repair is successful only when the patched test is genuinely re-executed and passes against the target API.
 
-A repaired test is considered successful only when the patched test is **actually re-executed** and passes.
-
-If a failure cannot be safely repaired, Contextπ preserves the genuine failure instead of fabricating a pass.
+If a failure cannot be safely repaired, Contextπ preserves the authentic failure.
 
 ---
 
-# 15. Step 11 — Reports
+# 19. Step 11 — Reports
 
 Open **Reports** after execution.
 
@@ -543,21 +647,21 @@ Reports provide:
 - failed tests
 - skipped tests
 - pass rate
-- duration
+- execution duration
 - category breakdown
 - priority breakdown
-- detailed failures
+- failure details
 - repair information where applicable
 
-JSON and HTML report outputs are also produced by the execution pipeline.
+JSON and HTML report outputs are generated by the execution pipeline.
 
 ---
 
-# 16. Demo Mode 1 — Synthetic Adapter Mode
+# 20. Demo Mode 1 — Synthetic Adapter Mode
 
-Adapter Mode is a self-contained way to demonstrate the Contextπ engine without relying on NexaSupply or external application data.
+Adapter Mode is a self-contained way to demonstrate Contextπ without relying on NexaSupply or external application data.
 
-### Start
+Start:
 
 ```bash
 npm run start
@@ -572,7 +676,7 @@ http://localhost:5173
 Then:
 
 1. Select **Load Adapter Context**.
-2. Open **Context Explorer**.
+2. Explore **Context Explorer**.
 3. Generate the **Test Catalogue**.
 4. Approve the selected catalogue.
 5. Generate Playwright specifications.
@@ -582,27 +686,18 @@ Then:
 9. Inspect AI analysis / repair when available.
 10. Open Reports.
 
-Adapter Mode is intended to validate the Contextπ pipeline in a deterministic synthetic environment.
+Adapter Mode validates the Contextπ pipeline in a deterministic synthetic environment.
 
 ---
 
-# 17. Demo Mode 2 — Live NexaSupply Mode
+# 21. Demo Mode 2 — Live NexaSupply Mode
 
-Live Mode demonstrates Contextπ against a real local target application.
+Live Mode demonstrates Contextπ against a real local target.
 
-### Prepare the target
-
-Make sure MongoDB is running.
-
-Run:
+Prepare MongoDB, then:
 
 ```bash
 npm run seed
-```
-
-Start the full system:
-
-```bash
 npm run start
 ```
 
@@ -612,21 +707,16 @@ Open:
 http://localhost:5173
 ```
 
-Load the live MongoDB context using:
+Load the live context using:
 
 ```text
+MongoDB:
 mongodb://127.0.0.1:27017
-```
 
 Database:
-
-```text
 nexasupply_db
-```
 
 Target API:
-
-```text
 http://localhost:3000
 ```
 
@@ -645,59 +735,61 @@ Context
 
 ---
 
-# 18. Important Separation of Responsibilities
+# 22. Recommended Hackathon Demonstration
 
-This repository contains two applications with different purposes.
+For a short evaluator presentation:
 
-## Contextπ
-
-**Contextπ is the hackathon solution.**
-
-Its engine is designed to be application-agnostic and derives test behavior from the discovered target context.
-
-## NexaSupply
-
-**NexaSupply is the bundled validation target.**
-
-It provides a realistic supply-chain API and MongoDB environment for demonstrating Contextπ in Live Mode.
-
-NexaSupply-specific entity names, seed data, and business logic should not be required by the Contextπ engine itself.
+```text
+1. Show the architecture.
+2. Open Context Explorer.
+3. Show schemas, fields, relationships and functions.
+4. Generate the test catalogue.
+5. Show traceability and dependencies.
+6. Approve the catalogue.
+7. Generate Playwright .spec.ts files.
+8. Run the test suite.
+9. Open Description on a test.
+10. Open Trace on a failure.
+11. Show AI analysis / safe repair when available.
+12. Show final results.
+13. Open Reports.
+```
 
 ---
 
-# 19. Root Commands
+# 23. Root Commands
 
-All commands are run from:
+Run all commands from:
 
 ```text
 ContextPi Application/
 ```
 
-### Install dependencies
+Install:
 
 ```bash
 npm run setup
 ```
 
-### Build everything
+Build:
 
 ```bash
 npm run build
 ```
 
-### Seed NexaSupply
+Seed:
 
 ```bash
 npm run seed
 ```
 
-### Check readiness
+Verify:
 
 ```bash
 npm run verify
 ```
 
-### Start the complete system
+Start:
 
 ```bash
 npm run start
@@ -705,14 +797,103 @@ npm run start
 
 ---
 
-# 20. Troubleshooting
+# 24. Stopping the System
 
-## MongoDB is not available
+To stop the application services, stop the terminal running:
 
-Make sure MongoDB is running on:
+```bash
+npm run start
+```
+
+If you need to clear application ports on Windows before a fresh run, PowerShell can be used:
+
+```powershell
+$ports = 3000,3001,5173
+
+foreach ($port in $ports) {
+    Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue |
+        Select-Object -ExpandProperty OwningProcess -Unique |
+        ForEach-Object {
+            Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue
+        }
+}
+```
+
+MongoDB can be stopped separately if required:
+
+```powershell
+Stop-Service MongoDB
+```
+
+To start it again:
+
+```powershell
+Start-Service MongoDB
+```
+
+Use an **Administrator PowerShell** for Windows service operations.
+
+---
+
+# 25. Troubleshooting
+
+## MongoDB service will not start
+
+First check:
+
+```powershell
+Get-Service MongoDB
+```
+
+If stopped, open PowerShell as Administrator and try:
+
+```powershell
+Start-Service MongoDB
+```
+
+If Windows reports:
 
 ```text
-mongodb://127.0.0.1:27017
+Cannot open MongoDB service on computer '.'
+```
+
+or:
+
+```text
+Access is denied
+```
+
+inspect the service:
+
+```powershell
+sc.exe qc MongoDB
+```
+
+and inspect the MongoDB configuration:
+
+```powershell
+Get-Content "C:\Program Files\MongoDB\Server\8.3\bin\mongod.cfg"
+```
+
+The installation directory may differ by MongoDB version.
+
+If `mongod --version` or `mongosh --version` is not recognized, the MongoDB `bin` directory may not be in the Windows `PATH`. The MongoDB server can still be installed correctly as a Windows service.
+
+Verify the installation files with:
+
+```cmd
+dir "C:\Program Files\MongoDB\Server" /ad
+dir "C:\Program Files\MongoDB\Server\8.3\bin"
+```
+
+Do not place MongoDB binaries or ZIP files in this repository.
+
+## MongoDB connection error during seed
+
+Make sure MongoDB is running and port 27017 is listening:
+
+```powershell
+Get-NetTCPConnection -LocalPort 27017 -State Listen
 ```
 
 Then retry:
@@ -749,7 +930,7 @@ Then restart:
 npm run start
 ```
 
-## Frontend opens but buttons do not work
+## Frontend loads but buttons do not work
 
 Make sure the Contextπ backend is running on:
 
@@ -757,13 +938,25 @@ Make sure the Contextπ backend is running on:
 http://localhost:3001
 ```
 
-The Vite development client on port `5173` uses the configured `/api` proxy to communicate with the Contextπ backend.
+The Vite development client on port 5173 uses the configured `/api` proxy to communicate with the Contextπ backend.
+
+## Port already in use
+
+Find processes using the application ports:
+
+```powershell
+Get-NetTCPConnection -State Listen |
+    Where-Object { $_.LocalPort -in 3000,3001,5173,27017 } |
+    Select-Object LocalAddress,LocalPort,OwningProcess
+```
+
+Stop only the process you intend to stop, then restart the application.
 
 ---
 
-# 21. Verification Checklist
+# 26. Verification Checklist
 
-A complete local setup should satisfy:
+A complete setup should satisfy:
 
 ```text
 [ ] Node.js installed
@@ -771,7 +964,7 @@ A complete local setup should satisfy:
 [ ] npm run setup succeeds
 [ ] npm run build succeeds
 [ ] npm run seed succeeds
-[ ] npm run verify reports all required services
+[ ] npm run verify reports required services
 [ ] npm run start launches all services
 [ ] http://localhost:5173 loads
 [ ] Target context can be loaded
@@ -787,60 +980,49 @@ A complete local setup should satisfy:
 
 ---
 
-# 22. Recommended Hackathon Demonstration
+# 27. Separation of Responsibilities
 
-For a short evaluator demonstration:
+## Contextπ
 
-```text
-1. Show the architecture.
-2. Open Context Explorer.
-3. Show discovered schemas, fields, relationships and functions.
-4. Generate the test catalogue.
-5. Show traceability and dependencies.
-6. Approve the catalogue.
-7. Generate Playwright .spec.ts files.
-8. Run the real test suite.
-9. Open Description on a test to explain its purpose.
-10. Open Trace on a failure to show the readable diagnosis.
-11. Show AI analysis / safe repair when available.
-12. Re-execute and show the final result.
-13. Open Reports.
-```
+**Contextπ is the main hackathon solution.**
+
+Its engine is designed to remain application-agnostic and to derive testing behavior from the discovered target context.
+
+## NexaSupply
+
+**NexaSupply is the bundled validation target.**
+
+It provides a realistic supply-chain API and MongoDB environment for Live Mode.
+
+NexaSupply-specific entities and business logic are not supposed to be hardcoded into the generic Contextπ engine.
 
 ---
 
-# 23. What Makes Contextπ Different
+# 28. Key Features
 
-### Context-Driven
+### Dynamic Context Extraction
+Loads schemas, fields, data types, enums, relationships, constraints, business rules, functions and API contract information.
 
-Testing begins from discovered application context rather than manually written test cases.
+### Traceable Test Catalogue
+Creates structured test intentions with IDs, categories, priorities, reasoning and dependencies.
 
-### Application-Agnostic
+### Playwright HTTP API Testing
+Generates and executes TypeScript Playwright API tests.
 
-The core engine does not depend on NexaSupply-specific entity logic.
+### Safety Validation
+Validates generated specs and proposed repairs before execution.
 
-### Traceable
+### AI-Assisted Self-Healing
+Uses Qwen3 Coder or safe deterministic fallbacks for eligible failure diagnosis and repair.
 
-Every generated test can be traced back to its source metadata, reasoning, priority, and dependencies.
-
-### Playwright-Based
-
-The generated tests are executable TypeScript Playwright API tests.
-
-### Real Execution
-
-Test status comes from actual API execution rather than simulated pass/fail values.
-
-### Safe AI Assistance
-
-AI can analyze and repair eligible failures, while validation rules prevent unsafe or unsupported changes.
+### Truthful Reporting
+Execution metrics originate from actual test execution.
 
 ### Human-Readable Diagnostics
-
-Failures can be understood through structured explanations while retaining the raw technical error for debugging.
+Provides Description and Trace views so technical and non-technical users can understand individual tests and failures.
 
 ---
 
-# 24. License
+# 29. License
 
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.

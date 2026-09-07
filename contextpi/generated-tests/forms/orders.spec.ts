@@ -42,11 +42,24 @@ test.describe.serial('Form Entity orders API Spec', () => {
    */
   test('TC-ORDERS-CRUD-001 — Create orders - Happy Path', async ({ request }) => {
     const payload = {
-    "orderId": "ORD-5101",
-    "itemId": "65d1a2b3c4d5e6f7a8b9c0d1",
-    "quantity": 2,
-    "customerEmail": "customer@example.com",
-    "orderDate": "2026-08-23T12:00:00Z"
+    "orderId": "ORD-1101",
+    "customerId": "6a8bca5862985f737dee0bb108",
+    "itemId": "6a8bca5862985f737dee0fa0",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "quantity": 1,
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
@@ -163,11 +176,24 @@ test.describe.serial('Form Entity orders API Spec', () => {
     const payload = {
     "schemaName": "orders",
     "query": {
-        "orderId": "ORD-5101",
-        "itemId": "65d1a2b3c4d5e6f7a8b9c0d1",
-        "quantity": 2,
-        "customerEmail": "customer@example.com",
-        "orderDate": "2026-08-23T12:00:00Z"
+        "orderId": "ORD-1101",
+        "customerId": "6a8bca5862985f737dee0bb108",
+        "itemId": "6a8bca5862985f737dee0fa0",
+        "warehouseId": "6a8bca5862985f737dee07d100",
+        "quantity": 1,
+        "unitPrice": 49.99,
+        "totalAmount": 49.99,
+        "discountAmount": 0,
+        "taxAmount": 4,
+        "finalAmount": 53.99,
+        "customerEmail": "contact.client1@enterprise.org",
+        "orderDate": "2026-01-01T00:00:00.000Z",
+        "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+        "status": "PENDING",
+        "priority": "LOW",
+        "paymentStatus": "PAID",
+        "shippingAddress": "100 Commerce Blvd, New York, USA",
+        "isDeleted": false
     }
 };
 
@@ -206,11 +232,24 @@ test.describe.serial('Form Entity orders API Spec', () => {
   test('TC-ORDERS-CRUD-005 — Update orders record', async ({ request }) => {
     expect(createdRecordId, 'Prerequisite record creation failed or createdRecordId is undefined').toBeDefined();
     const payload = {
-    "orderId": "ORD-5101",
-    "itemId": "65d1a2b3c4d5e6f7a8b9c0d1",
-    "quantity": 2,
-    "customerEmail": "customer@example.com",
-    "orderDate": "2026-08-23T12:00:00Z",
+    "orderId": "ORD-1101",
+    "customerId": "6a8bca5862985f737dee0bb108",
+    "itemId": "6a8bca5862985f737dee0fa0",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "quantity": 1,
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false,
     "_id": createdRecordId!
 };
 
@@ -318,10 +357,23 @@ test.describe.serial('Form Entity orders API Spec', () => {
    */
   test('TC-ORDERS-CRUD-008 — Create orders - Missing Mandatory Field \'orderId\'', async ({ request }) => {
     const payload = {
-    "itemId": "65d1a2b3c4d5e6f7a8b9c0d1",
-    "quantity": 2,
-    "customerEmail": "customer@example.com",
-    "orderDate": "2026-08-23T12:00:00Z"
+    "customerId": "6a8bca5862985f737dee0bb209",
+    "itemId": "6a8bca5862985f737dee0fa0",
+    "warehouseId": "6a8bca5862985f737dee07d201",
+    "quantity": 1,
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
@@ -351,11 +403,24 @@ test.describe.serial('Form Entity orders API Spec', () => {
    */
   test('TC-ORDERS-CRUD-009 — Create orders - Wrong Type for Field \'quantity\'', async ({ request }) => {
     const payload = {
-    "orderId": "ORD-5203",
-    "itemId": "65d1a2b3c4d5e6f7a8b9c0d1",
+    "orderId": "ORD-1203",
+    "customerId": "6a8bca5862985f737dee0bb210",
+    "itemId": "6a8bca5862985f737dee0fa0",
+    "warehouseId": "6a8bca5862985f737dee07d202",
     "quantity": "INVALID_STRING_VALUE",
-    "customerEmail": "customer@example.com",
-    "orderDate": "2026-08-23T12:00:00Z"
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
@@ -387,18 +452,44 @@ test.describe.serial('Form Entity orders API Spec', () => {
     "schemaName": "orders",
     "records": [
         {
-            "orderId": "ORD-5302",
-            "itemId": "65d1a2b3c4d5e6f7a8b9c0d1",
-            "quantity": 2,
-            "customerEmail": "customer@example.com",
-            "orderDate": "2026-08-23T12:00:00Z"
+            "orderId": "ORD-1302",
+            "customerId": "6a8bca5862985f737dee0bb309",
+            "itemId": "6a8bca5862985f737dee0fa0",
+            "warehouseId": "6a8bca5862985f737dee07d301",
+            "quantity": 1,
+            "unitPrice": 49.99,
+            "totalAmount": 49.99,
+            "discountAmount": 0,
+            "taxAmount": 4,
+            "finalAmount": 53.99,
+            "customerEmail": "contact.client1@enterprise.org",
+            "orderDate": "2026-01-01T00:00:00.000Z",
+            "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+            "status": "PENDING",
+            "priority": "LOW",
+            "paymentStatus": "PAID",
+            "shippingAddress": "100 Commerce Blvd, New York, USA",
+            "isDeleted": false
         },
         {
-            "orderId": "ORD-5303",
-            "itemId": "65d1a2b3c4d5e6f7a8b9c0d1",
-            "quantity": 2,
-            "customerEmail": "customer@example.com",
-            "orderDate": "2026-08-23T12:00:00Z"
+            "orderId": "ORD-1303",
+            "customerId": "6a8bca5862985f737dee0bb310",
+            "itemId": "6a8bca5862985f737dee0fa0",
+            "warehouseId": "6a8bca5862985f737dee07d302",
+            "quantity": 1,
+            "unitPrice": 49.99,
+            "totalAmount": 49.99,
+            "discountAmount": 0,
+            "taxAmount": 4,
+            "finalAmount": 53.99,
+            "customerEmail": "contact.client1@enterprise.org",
+            "orderDate": "2026-01-01T00:00:00.000Z",
+            "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+            "status": "PENDING",
+            "priority": "LOW",
+            "paymentStatus": "PAID",
+            "shippingAddress": "100 Commerce Blvd, New York, USA",
+            "isDeleted": false
         }
     ]
 };
@@ -437,10 +528,23 @@ test.describe.serial('Form Entity orders API Spec', () => {
    */
   test('TC-ORDERS-FIELD-001 — Field Validation: Missing Mandatory Field \'orderId\'', async ({ request }) => {
     const payload = {
-    "itemId": "65d1a2b3c4d5e6f7a8b9c0d1",
-    "quantity": 2,
-    "customerEmail": "customer@example.com",
-    "orderDate": "2026-08-23T12:00:00Z"
+    "customerId": "6a8bca5862985f737dee0bb108",
+    "itemId": "6a8bca5862985f737dee0fa0",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "quantity": 1,
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
@@ -470,10 +574,23 @@ test.describe.serial('Form Entity orders API Spec', () => {
    */
   test('TC-ORDERS-FIELD-002 — Field Validation: Missing Mandatory Field \'itemId\'', async ({ request }) => {
     const payload = {
-    "orderId": "ORD-5101",
-    "quantity": 2,
-    "customerEmail": "customer@example.com",
-    "orderDate": "2026-08-23T12:00:00Z"
+    "orderId": "ORD-1101",
+    "customerId": "6a8bca5862985f737dee0bb108",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "quantity": 1,
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
@@ -503,10 +620,23 @@ test.describe.serial('Form Entity orders API Spec', () => {
    */
   test('TC-ORDERS-FIELD-003 — Field Validation: Missing Mandatory Field \'quantity\'', async ({ request }) => {
     const payload = {
-    "orderId": "ORD-5101",
-    "itemId": "65d1a2b3c4d5e6f7a8b9c0d1",
-    "customerEmail": "customer@example.com",
-    "orderDate": "2026-08-23T12:00:00Z"
+    "orderId": "ORD-1101",
+    "customerId": "6a8bca5862985f737dee0bb108",
+    "itemId": "6a8bca5862985f737dee0fa0",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
@@ -536,11 +666,24 @@ test.describe.serial('Form Entity orders API Spec', () => {
    */
   test('TC-ORDERS-FIELD-004 — Field Validation: Wrong Data Type for Numeric Field \'quantity\'', async ({ request }) => {
     const payload = {
-    "orderId": "ORD-5101",
-    "itemId": "65d1a2b3c4d5e6f7a8b9c0d1",
+    "orderId": "ORD-1101",
+    "customerId": "6a8bca5862985f737dee0bb108",
+    "itemId": "6a8bca5862985f737dee0fa0",
+    "warehouseId": "6a8bca5862985f737dee07d100",
     "quantity": "INVALID_NON_NUMERIC_STRING",
-    "customerEmail": "customer@example.com",
-    "orderDate": "2026-08-23T12:00:00Z"
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
@@ -560,19 +703,33 @@ test.describe.serial('Form Entity orders API Spec', () => {
    * Contextπ Generated Playwright API Test
    * Test ID: TC-ORDERS-FIELD-005
    * Category: FIELD_VALIDATION
-   * Priority: MEDIUM
+   * Priority: HIGH
    * Target Entity: orders
    * Source: MONGO_SCHEMA
-   * Source Ref: orders.quantity
-   * Reasoning: Field 'quantity' specifies default value 1; omitting field applies default
+   * Source Ref: orders.unitPrice
+   * Reasoning: Field 'unitPrice' expects numeric type; sending string must return HTTP 400
    * Dependencies: []
    */
-  test('TC-ORDERS-FIELD-005 — Field Validation: Default Value Verification for Field \'quantity\'', async ({ request }) => {
+  test('TC-ORDERS-FIELD-005 — Field Validation: Wrong Data Type for Numeric Field \'unitPrice\'', async ({ request }) => {
     const payload = {
-    "orderId": "ORD-5002",
-    "itemId": "65d1a2b3c4d5e6f7a8b9c0d1",
-    "customerEmail": "customer@example.com",
-    "orderDate": "2026-08-23T12:00:00Z"
+    "orderId": "ORD-1101",
+    "customerId": "6a8bca5862985f737dee0bb108",
+    "itemId": "6a8bca5862985f737dee0fa0",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "quantity": 1,
+    "unitPrice": "INVALID_NON_NUMERIC_STRING",
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
@@ -583,22 +740,198 @@ test.describe.serial('Form Entity orders API Spec', () => {
       }
     });
 
-    expect(response.status()).toBe(201);
+    expect(response.status()).toBe(400);
     const body = await response.json();
     expect(body).toBeDefined();
-    expect(typeof body === 'object' && body !== null).toBeTruthy();
-    if (body.id || body._id || body.data?._id || body.data?.id) {
-      const capturedId = body.id || body._id || body.data?._id || body.data?.id;
-      if (typeof capturedId === 'string' && capturedId.length > 0) {
-        createdRecordId = capturedId;
-      }
-    }
-    expect(createdRecordId || body, 'Positive creation response must return valid record').toBeDefined();
   });
 
   /**
    * Contextπ Generated Playwright API Test
    * Test ID: TC-ORDERS-FIELD-006
+   * Category: FIELD_VALIDATION
+   * Priority: HIGH
+   * Target Entity: orders
+   * Source: MONGO_SCHEMA
+   * Source Ref: orders.totalAmount
+   * Reasoning: Field 'totalAmount' expects numeric type; sending string must return HTTP 400
+   * Dependencies: []
+   */
+  test('TC-ORDERS-FIELD-006 — Field Validation: Wrong Data Type for Numeric Field \'totalAmount\'', async ({ request }) => {
+    const payload = {
+    "orderId": "ORD-1101",
+    "customerId": "6a8bca5862985f737dee0bb108",
+    "itemId": "6a8bca5862985f737dee0fa0",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "quantity": 1,
+    "unitPrice": 49.99,
+    "totalAmount": "INVALID_NON_NUMERIC_STRING",
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
+};
+
+    const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
+      data: payload,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-project-name': PROJECT_NAME
+      }
+    });
+
+    expect(response.status()).toBe(400);
+    const body = await response.json();
+    expect(body).toBeDefined();
+  });
+
+  /**
+   * Contextπ Generated Playwright API Test
+   * Test ID: TC-ORDERS-FIELD-007
+   * Category: FIELD_VALIDATION
+   * Priority: HIGH
+   * Target Entity: orders
+   * Source: MONGO_SCHEMA
+   * Source Ref: orders.discountAmount
+   * Reasoning: Field 'discountAmount' expects numeric type; sending string must return HTTP 400
+   * Dependencies: []
+   */
+  test('TC-ORDERS-FIELD-007 — Field Validation: Wrong Data Type for Numeric Field \'discountAmount\'', async ({ request }) => {
+    const payload = {
+    "orderId": "ORD-1101",
+    "customerId": "6a8bca5862985f737dee0bb108",
+    "itemId": "6a8bca5862985f737dee0fa0",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "quantity": 1,
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": "INVALID_NON_NUMERIC_STRING",
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
+};
+
+    const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
+      data: payload,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-project-name': PROJECT_NAME
+      }
+    });
+
+    expect(response.status()).toBe(400);
+    const body = await response.json();
+    expect(body).toBeDefined();
+  });
+
+  /**
+   * Contextπ Generated Playwright API Test
+   * Test ID: TC-ORDERS-FIELD-008
+   * Category: FIELD_VALIDATION
+   * Priority: HIGH
+   * Target Entity: orders
+   * Source: MONGO_SCHEMA
+   * Source Ref: orders.taxAmount
+   * Reasoning: Field 'taxAmount' expects numeric type; sending string must return HTTP 400
+   * Dependencies: []
+   */
+  test('TC-ORDERS-FIELD-008 — Field Validation: Wrong Data Type for Numeric Field \'taxAmount\'', async ({ request }) => {
+    const payload = {
+    "orderId": "ORD-1101",
+    "customerId": "6a8bca5862985f737dee0bb108",
+    "itemId": "6a8bca5862985f737dee0fa0",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "quantity": 1,
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": "INVALID_NON_NUMERIC_STRING",
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
+};
+
+    const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
+      data: payload,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-project-name': PROJECT_NAME
+      }
+    });
+
+    expect(response.status()).toBe(400);
+    const body = await response.json();
+    expect(body).toBeDefined();
+  });
+
+  /**
+   * Contextπ Generated Playwright API Test
+   * Test ID: TC-ORDERS-FIELD-009
+   * Category: FIELD_VALIDATION
+   * Priority: HIGH
+   * Target Entity: orders
+   * Source: MONGO_SCHEMA
+   * Source Ref: orders.finalAmount
+   * Reasoning: Field 'finalAmount' expects numeric type; sending string must return HTTP 400
+   * Dependencies: []
+   */
+  test('TC-ORDERS-FIELD-009 — Field Validation: Wrong Data Type for Numeric Field \'finalAmount\'', async ({ request }) => {
+    const payload = {
+    "orderId": "ORD-1101",
+    "customerId": "6a8bca5862985f737dee0bb108",
+    "itemId": "6a8bca5862985f737dee0fa0",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "quantity": 1,
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": "INVALID_NON_NUMERIC_STRING",
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
+};
+
+    const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
+      data: payload,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-project-name': PROJECT_NAME
+      }
+    });
+
+    expect(response.status()).toBe(400);
+    const body = await response.json();
+    expect(body).toBeDefined();
+  });
+
+  /**
+   * Contextπ Generated Playwright API Test
+   * Test ID: TC-ORDERS-FIELD-010
    * Category: FIELD_VALIDATION
    * Priority: CRITICAL
    * Target Entity: orders
@@ -607,12 +940,25 @@ test.describe.serial('Form Entity orders API Spec', () => {
    * Reasoning: Field 'customerEmail' is mandatory; omitting it must return HTTP 400
    * Dependencies: []
    */
-  test('TC-ORDERS-FIELD-006 — Field Validation: Missing Mandatory Field \'customerEmail\'', async ({ request }) => {
+  test('TC-ORDERS-FIELD-010 — Field Validation: Missing Mandatory Field \'customerEmail\'', async ({ request }) => {
     const payload = {
-    "orderId": "ORD-5101",
-    "itemId": "65d1a2b3c4d5e6f7a8b9c0d1",
-    "quantity": 2,
-    "orderDate": "2026-08-23T12:00:00Z"
+    "orderId": "ORD-1101",
+    "customerId": "6a8bca5862985f737dee0bb108",
+    "itemId": "6a8bca5862985f737dee0fa0",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "quantity": 1,
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
@@ -631,23 +977,128 @@ test.describe.serial('Form Entity orders API Spec', () => {
 
   /**
    * Contextπ Generated Playwright API Test
+   * Test ID: TC-ORDERS-FIELD-011
+   * Category: FIELD_VALIDATION
+   * Priority: CRITICAL
+   * Target Entity: orders
+   * Source: MONGO_SCHEMA
+   * Source Ref: orders.orderDate
+   * Reasoning: Field 'orderDate' is mandatory; omitting it must return HTTP 400
+   * Dependencies: []
+   */
+  test('TC-ORDERS-FIELD-011 — Field Validation: Missing Mandatory Field \'orderDate\'', async ({ request }) => {
+    const payload = {
+    "orderId": "ORD-1101",
+    "customerId": "6a8bca5862985f737dee0bb108",
+    "itemId": "6a8bca5862985f737dee0fa0",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "quantity": 1,
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
+};
+
+    const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
+      data: payload,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-project-name': PROJECT_NAME
+      }
+    });
+
+    expect(response.status()).toBe(400);
+    const body = await response.json();
+    expect(body).toBeDefined();
+    expect(JSON.stringify(body).toLowerCase()).toContain('orderdate');
+  });
+
+  /**
+   * Contextπ Generated Playwright API Test
+   * Test ID: TC-ORDERS-FIELD-012
+   * Category: FIELD_VALIDATION
+   * Priority: CRITICAL
+   * Target Entity: orders
+   * Source: MONGO_SCHEMA
+   * Source Ref: orders.status
+   * Reasoning: Field 'status' is mandatory; omitting it must return HTTP 400
+   * Dependencies: []
+   */
+  test('TC-ORDERS-FIELD-012 — Field Validation: Missing Mandatory Field \'status\'', async ({ request }) => {
+    const payload = {
+    "orderId": "ORD-1101",
+    "customerId": "6a8bca5862985f737dee0bb108",
+    "itemId": "6a8bca5862985f737dee0fa0",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "quantity": 1,
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
+};
+
+    const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
+      data: payload,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-project-name': PROJECT_NAME
+      }
+    });
+
+    expect(response.status()).toBe(400);
+    const body = await response.json();
+    expect(body).toBeDefined();
+    expect(JSON.stringify(body).toLowerCase()).toContain('status');
+  });
+
+  /**
+   * Contextπ Generated Playwright API Test
    * Test ID: TC-ORDERS-REL-001
    * Category: RELATIONSHIP
    * Priority: CRITICAL
    * Target Entity: orders
    * Source: MONGO_SCHEMA
-   * Source Ref: orders.itemId -> items
-   * Reasoning: Field 'itemId' references 'items'; passing existing referenced ID returns HTTP 201
+   * Source Ref: orders.customerId -> customers
+   * Reasoning: Field 'customerId' references 'customers'; passing existing referenced ID returns HTTP 201
    * Dependencies: []
    */
-  test('TC-ORDERS-REL-001 — Relationship Test: Valid Reference \'itemId\' -> \'items\'', async ({ request }) => {
+  test('TC-ORDERS-REL-001 — Relationship Test: Valid Reference \'customerId\' -> \'customers\'', async ({ request }) => {
     expect(referencedRecordId, 'Prerequisite referenced record creation failed or referencedRecordId is undefined').toBeDefined();
     const payload = {
-    "orderId": "ORD-5101",
-    "itemId": referencedRecordId!,
-    "quantity": 2,
-    "customerEmail": "customer@example.com",
-    "orderDate": "2026-08-23T12:00:00Z"
+    "orderId": "ORD-1101",
+    "customerId": referencedRecordId!,
+    "itemId": "6a8bca5862985f737dee0fa0",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "quantity": 1,
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
@@ -678,17 +1129,232 @@ test.describe.serial('Form Entity orders API Spec', () => {
    * Priority: HIGH
    * Target Entity: orders
    * Source: MONGO_SCHEMA
+   * Source Ref: orders.customerId -> customers
+   * Reasoning: Field 'customerId' references 'customers'; passing non-existent ID '65f000...' returns HTTP 400
+   * Dependencies: []
+   */
+  test('TC-ORDERS-REL-002 — Relationship Test: Non-existent Reference \'customerId\' -> \'customers\'', async ({ request }) => {
+    const payload = {
+    "orderId": "ORD-1101",
+    "customerId": "65f000000000000000000000",
+    "itemId": "6a8bca5862985f737dee0fa0",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "quantity": 1,
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
+};
+
+    const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
+      data: payload,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-project-name': PROJECT_NAME
+      }
+    });
+
+    expect(response.status()).toBe(400);
+    const body = await response.json();
+    expect(body).toBeDefined();
+  });
+
+  /**
+   * Contextπ Generated Playwright API Test
+   * Test ID: TC-ORDERS-REL-003
+   * Category: RELATIONSHIP
+   * Priority: CRITICAL
+   * Target Entity: orders
+   * Source: MONGO_SCHEMA
+   * Source Ref: orders.itemId -> items
+   * Reasoning: Field 'itemId' references 'items'; passing existing referenced ID returns HTTP 201
+   * Dependencies: []
+   */
+  test('TC-ORDERS-REL-003 — Relationship Test: Valid Reference \'itemId\' -> \'items\'', async ({ request }) => {
+    expect(referencedRecordId, 'Prerequisite referenced record creation failed or referencedRecordId is undefined').toBeDefined();
+    const payload = {
+    "orderId": "ORD-1101",
+    "customerId": "6a8bca5862985f737dee0bb108",
+    "itemId": referencedRecordId!,
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "quantity": 1,
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
+};
+
+    const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
+      data: payload,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-project-name': PROJECT_NAME
+      }
+    });
+
+    expect(response.status()).toBe(201);
+    const body = await response.json();
+    expect(body).toBeDefined();
+    expect(typeof body === 'object' && body !== null).toBeTruthy();
+    if (body.id || body._id || body.data?._id || body.data?.id) {
+      const capturedId = body.id || body._id || body.data?._id || body.data?.id;
+      if (typeof capturedId === 'string' && capturedId.length > 0) {
+        createdRecordId = capturedId;
+      }
+    }
+    expect(createdRecordId || body, 'Positive creation response must return valid record').toBeDefined();
+  });
+
+  /**
+   * Contextπ Generated Playwright API Test
+   * Test ID: TC-ORDERS-REL-004
+   * Category: RELATIONSHIP
+   * Priority: HIGH
+   * Target Entity: orders
+   * Source: MONGO_SCHEMA
    * Source Ref: orders.itemId -> items
    * Reasoning: Field 'itemId' references 'items'; passing non-existent ID '65f000...' returns HTTP 400
    * Dependencies: []
    */
-  test('TC-ORDERS-REL-002 — Relationship Test: Non-existent Reference \'itemId\' -> \'items\'', async ({ request }) => {
+  test('TC-ORDERS-REL-004 — Relationship Test: Non-existent Reference \'itemId\' -> \'items\'', async ({ request }) => {
     const payload = {
-    "orderId": "ORD-5101",
+    "orderId": "ORD-1101",
+    "customerId": "6a8bca5862985f737dee0bb108",
     "itemId": "65f000000000000000000000",
-    "quantity": 2,
-    "customerEmail": "customer@example.com",
-    "orderDate": "2026-08-23T12:00:00Z"
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "quantity": 1,
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
+};
+
+    const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
+      data: payload,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-project-name': PROJECT_NAME
+      }
+    });
+
+    expect(response.status()).toBe(400);
+    const body = await response.json();
+    expect(body).toBeDefined();
+  });
+
+  /**
+   * Contextπ Generated Playwright API Test
+   * Test ID: TC-ORDERS-REL-005
+   * Category: RELATIONSHIP
+   * Priority: CRITICAL
+   * Target Entity: orders
+   * Source: MONGO_SCHEMA
+   * Source Ref: orders.warehouseId -> warehouses
+   * Reasoning: Field 'warehouseId' references 'warehouses'; passing existing referenced ID returns HTTP 201
+   * Dependencies: []
+   */
+  test('TC-ORDERS-REL-005 — Relationship Test: Valid Reference \'warehouseId\' -> \'warehouses\'', async ({ request }) => {
+    expect(referencedRecordId, 'Prerequisite referenced record creation failed or referencedRecordId is undefined').toBeDefined();
+    const payload = {
+    "orderId": "ORD-1101",
+    "customerId": "6a8bca5862985f737dee0bb108",
+    "itemId": "6a8bca5862985f737dee0fa0",
+    "warehouseId": referencedRecordId!,
+    "quantity": 1,
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
+};
+
+    const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {
+      data: payload,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-project-name': PROJECT_NAME
+      }
+    });
+
+    expect(response.status()).toBe(201);
+    const body = await response.json();
+    expect(body).toBeDefined();
+    expect(typeof body === 'object' && body !== null).toBeTruthy();
+    if (body.id || body._id || body.data?._id || body.data?.id) {
+      const capturedId = body.id || body._id || body.data?._id || body.data?.id;
+      if (typeof capturedId === 'string' && capturedId.length > 0) {
+        createdRecordId = capturedId;
+      }
+    }
+    expect(createdRecordId || body, 'Positive creation response must return valid record').toBeDefined();
+  });
+
+  /**
+   * Contextπ Generated Playwright API Test
+   * Test ID: TC-ORDERS-REL-006
+   * Category: RELATIONSHIP
+   * Priority: HIGH
+   * Target Entity: orders
+   * Source: MONGO_SCHEMA
+   * Source Ref: orders.warehouseId -> warehouses
+   * Reasoning: Field 'warehouseId' references 'warehouses'; passing non-existent ID '65f000...' returns HTTP 400
+   * Dependencies: []
+   */
+  test('TC-ORDERS-REL-006 — Relationship Test: Non-existent Reference \'warehouseId\' -> \'warehouses\'', async ({ request }) => {
+    const payload = {
+    "orderId": "ORD-1101",
+    "customerId": "6a8bca5862985f737dee0bb108",
+    "itemId": "6a8bca5862985f737dee0fa0",
+    "warehouseId": "65f000000000000000000000",
+    "quantity": 1,
+    "unitPrice": 49.99,
+    "totalAmount": 49.99,
+    "discountAmount": 0,
+    "taxAmount": 4,
+    "finalAmount": 53.99,
+    "customerEmail": "contact.client1@enterprise.org",
+    "orderDate": "2026-01-01T00:00:00.000Z",
+    "requiredDeliveryDate": "2026-08-31T00:00:00.000Z",
+    "status": "PENDING",
+    "priority": "LOW",
+    "paymentStatus": "PAID",
+    "shippingAddress": "100 Commerce Blvd, New York, USA",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('orders')}`, {

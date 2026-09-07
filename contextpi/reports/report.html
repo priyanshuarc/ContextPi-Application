@@ -1,0 +1,2119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contextπ Test Execution Report - NexaSupply</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 24px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .header { display: flex; justify-content: space-between; align-items: center; background: #1e293b; padding: 24px; border-radius: 12px; border: 1px solid #334155; }
+    .title { font-size: 24px; font-weight: bold; color: #38bdf8; margin: 0; }
+    .subtitle { font-size: 14px; color: #94a3b8; margin-top: 4px; }
+    .badge { padding: 8px 16px; border-radius: 20px; font-weight: bold; font-size: 16px; color: white; background: #f59e0b; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 24px; }
+    .card { background: #1e293b; padding: 20px; border-radius: 12px; border: 1px solid #334155; text-align: center; }
+    .card-num { font-size: 28px; font-weight: bold; margin-top: 4px; }
+    .card-label { font-size: 12px; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.05em; }
+    .tables-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; background: #1e293b; border-radius: 8px; overflow: hidden; }
+    th { background: #334155; text-align: left; padding: 10px 14px; color: #cbd5e1; font-weight: 600; }
+    td { padding: 10px 14px; border-top: 1px solid #334155; vertical-align: top; }
+    .section-title { font-size: 18px; font-weight: bold; color: #f8fafc; margin-top: 32px; margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>
+        <h1 class="title">Contextπ Test Execution Report</h1>
+        <div class="subtitle">Project: <strong>NexaSupply</strong> | Target API: <strong>http://localhost:3000</strong></div>
+        <div class="subtitle">Executed At: 2026-08-24T11:14:03.506Z</div>
+      </div>
+      <div class="badge">96.6% PASS RATE</div>
+    </div>
+
+    <div class="cards">
+      <div class="card"><div class="card-label">Total Executed</div><div class="card-num" style="color:#f8fafc;">148</div></div>
+      <div class="card"><div class="card-label">Passed</div><div class="card-num" style="color:#34d399;">143</div></div>
+      <div class="card"><div class="card-label">Failed</div><div class="card-num" style="color:#f87171;">5</div></div>
+      <div class="card"><div class="card-label">Skipped</div><div class="card-num" style="color:#fbbf24;">0</div></div>
+      <div class="card"><div class="card-label">Total Duration</div><div class="card-num" style="color:#38bdf8;">2499 ms</div></div>
+    </div>
+
+    <div class="tables-grid">
+      <div>
+        <div class="section-title">Category Breakdown</div>
+        <table>
+          <thead><tr><th>Category</th><th>Total</th><th>Passed</th><th>Failed</th><th>Pass %</th></tr></thead>
+          <tbody>
+      <tr>
+        <td style="font-weight:600; color:#38bdf8;">CRUD</td>
+        <td>64</td>
+        <td style="color:#34d399;">62</td>
+        <td style="color:#f87171;">2</td>
+        <td>97%</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600; color:#38bdf8;">BULK_UPLOAD</td>
+        <td>7</td>
+        <td style="color:#34d399;">7</td>
+        <td style="color:#f87171;">0</td>
+        <td>100%</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600; color:#38bdf8;">FIELD_VALIDATION</td>
+        <td>59</td>
+        <td style="color:#34d399;">59</td>
+        <td style="color:#f87171;">0</td>
+        <td>100%</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600; color:#38bdf8;">RELATIONSHIP</td>
+        <td>18</td>
+        <td style="color:#34d399;">15</td>
+        <td style="color:#f87171;">3</td>
+        <td>83%</td>
+      </tr></tbody>
+        </table>
+      </div>
+      <div>
+        <div class="section-title">Priority Breakdown</div>
+        <table>
+          <thead><tr><th>Priority</th><th>Total</th><th>Passed</th><th>Failed</th><th>Pass %</th></tr></thead>
+          <tbody>
+      <tr>
+        <td style="font-weight:600;">CRITICAL</td>
+        <td>62</td>
+        <td style="color:#34d399;">59</td>
+        <td style="color:#f87171;">3</td>
+        <td>95%</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600;">MEDIUM</td>
+        <td>29</td>
+        <td style="color:#34d399;">27</td>
+        <td style="color:#f87171;">2</td>
+        <td>93%</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600;">HIGH</td>
+        <td>57</td>
+        <td style="color:#34d399;">57</td>
+        <td style="color:#f87171;">0</td>
+        <td>100%</td>
+      </tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-title">Detailed Test Execution Results</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Test ID</th>
+          <th>Status</th>
+          <th>Category</th>
+          <th>Target Entity</th>
+          <th>Priority</th>
+          <th>Duration</th>
+          <th>Reasoning & Diagnostics</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-CUSTOMERS-CRUD-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>customers</td>
+        <td>CRITICAL</td>
+        <td>94 ms</td>
+        <td>
+          <div>Validate creation of customers with valid payload</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (customers)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-CUSTOMERS-CRUD-002</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>customers</td>
+        <td>MEDIUM</td>
+        <td>23 ms</td>
+        <td>
+          <div>Fetch customers record using ID returned from creation</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (customers)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-CUSTOMERS-CRUD-003</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>customers</td>
+        <td>MEDIUM</td>
+        <td>27 ms</td>
+        <td>
+          <div>Fetch array list of customers entities</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (customers)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-CUSTOMERS-CRUD-004</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>customers</td>
+        <td>MEDIUM</td>
+        <td>15 ms</td>
+        <td>
+          <div>Query customers with filter parameters</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (customers)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-CUSTOMERS-CRUD-005</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>customers</td>
+        <td>HIGH</td>
+        <td>17 ms</td>
+        <td>
+          <div>Modify existing customers fields</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (customers)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-CUSTOMERS-CRUD-006</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>customers</td>
+        <td>HIGH</td>
+        <td>20 ms</td>
+        <td>
+          <div>Remove customers by ID</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (customers)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-CUSTOMERS-CRUD-007</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>customers</td>
+        <td>MEDIUM</td>
+        <td>14 ms</td>
+        <td>
+          <div>Deleted customers record should return 404 or be excluded from query results</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (customers)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-CUSTOMERS-CRUD-008</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>customers</td>
+        <td>CRITICAL</td>
+        <td>13 ms</td>
+        <td>
+          <div>Omit mandatory field 'customerCode' to assert HTTP 400 rejection</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (customers.customerCode)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-CUSTOMERS-CRUD-009</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>customers</td>
+        <td>HIGH</td>
+        <td>12 ms</td>
+        <td>
+          <div>Send string for numeric field 'creditLimit' to assert HTTP 400 rejection</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (customers.creditLimit)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-CUSTOMERS-BULK-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>BULK_UPLOAD</td>
+        <td>customers</td>
+        <td>HIGH</td>
+        <td>54 ms</td>
+        <td>
+          <div>Valid bulk CSV upload for customers schema returns HTTP 200</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (customers.bulk)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-CUSTOMERS-FIELD-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>customers</td>
+        <td>CRITICAL</td>
+        <td>12 ms</td>
+        <td>
+          <div>Field 'customerCode' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (customers.customerCode)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-CUSTOMERS-FIELD-002</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>customers</td>
+        <td>CRITICAL</td>
+        <td>9 ms</td>
+        <td>
+          <div>Field 'customerName' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (customers.customerName)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-CUSTOMERS-FIELD-003</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>customers</td>
+        <td>CRITICAL</td>
+        <td>8 ms</td>
+        <td>
+          <div>Field 'email' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (customers.email)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-CUSTOMERS-FIELD-004</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>customers</td>
+        <td>CRITICAL</td>
+        <td>8 ms</td>
+        <td>
+          <div>Field 'customerType' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (customers.customerType)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-CUSTOMERS-FIELD-005</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>customers</td>
+        <td>CRITICAL</td>
+        <td>10 ms</td>
+        <td>
+          <div>Field 'creditLimit' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (customers.creditLimit)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-CUSTOMERS-FIELD-006</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>customers</td>
+        <td>HIGH</td>
+        <td>7 ms</td>
+        <td>
+          <div>Field 'creditLimit' expects numeric type; sending string must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (customers.creditLimit)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-CUSTOMERS-FIELD-007</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>customers</td>
+        <td>CRITICAL</td>
+        <td>12 ms</td>
+        <td>
+          <div>Field 'status' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (customers.status)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-CRUD-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>inventory</td>
+        <td>CRITICAL</td>
+        <td>22 ms</td>
+        <td>
+          <div>Validate creation of inventory with valid payload</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-CRUD-002</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>inventory</td>
+        <td>MEDIUM</td>
+        <td>15 ms</td>
+        <td>
+          <div>Fetch inventory record using ID returned from creation</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-CRUD-003</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>inventory</td>
+        <td>MEDIUM</td>
+        <td>79 ms</td>
+        <td>
+          <div>Fetch array list of inventory entities</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-CRUD-004</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>inventory</td>
+        <td>MEDIUM</td>
+        <td>14 ms</td>
+        <td>
+          <div>Query inventory with filter parameters</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-CRUD-005</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>inventory</td>
+        <td>HIGH</td>
+        <td>14 ms</td>
+        <td>
+          <div>Modify existing inventory fields</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-CRUD-006</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>inventory</td>
+        <td>HIGH</td>
+        <td>16 ms</td>
+        <td>
+          <div>Remove inventory by ID</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-CRUD-007</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>inventory</td>
+        <td>MEDIUM</td>
+        <td>97 ms</td>
+        <td>
+          <div>Deleted inventory record should return 404 or be excluded from query results</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-CRUD-008</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>inventory</td>
+        <td>CRITICAL</td>
+        <td>7 ms</td>
+        <td>
+          <div>Omit mandatory field 'itemId' to assert HTTP 400 rejection</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory.itemId)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-CRUD-009</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>inventory</td>
+        <td>HIGH</td>
+        <td>7 ms</td>
+        <td>
+          <div>Send string for numeric field 'quantity' to assert HTTP 400 rejection</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory.quantity)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-BULK-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>BULK_UPLOAD</td>
+        <td>inventory</td>
+        <td>HIGH</td>
+        <td>19 ms</td>
+        <td>
+          <div>Valid bulk CSV upload for inventory schema returns HTTP 200</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory.bulk)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-FIELD-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>inventory</td>
+        <td>CRITICAL</td>
+        <td>10 ms</td>
+        <td>
+          <div>Field 'itemId' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory.itemId)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-FIELD-002</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>inventory</td>
+        <td>CRITICAL</td>
+        <td>13 ms</td>
+        <td>
+          <div>Field 'warehouseId' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory.warehouseId)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-FIELD-003</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>inventory</td>
+        <td>CRITICAL</td>
+        <td>10 ms</td>
+        <td>
+          <div>Field 'quantity' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory.quantity)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-FIELD-004</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>inventory</td>
+        <td>HIGH</td>
+        <td>11 ms</td>
+        <td>
+          <div>Field 'quantity' expects numeric type; sending string must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory.quantity)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-FIELD-005</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>inventory</td>
+        <td>CRITICAL</td>
+        <td>11 ms</td>
+        <td>
+          <div>Field 'reservedQuantity' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory.reservedQuantity)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-FIELD-006</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>inventory</td>
+        <td>HIGH</td>
+        <td>8 ms</td>
+        <td>
+          <div>Field 'reservedQuantity' expects numeric type; sending string must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory.reservedQuantity)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-FIELD-007</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>inventory</td>
+        <td>CRITICAL</td>
+        <td>9 ms</td>
+        <td>
+          <div>Field 'availableQuantity' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory.availableQuantity)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-FIELD-008</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>inventory</td>
+        <td>HIGH</td>
+        <td>7 ms</td>
+        <td>
+          <div>Field 'availableQuantity' expects numeric type; sending string must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory.availableQuantity)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-FIELD-009</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>inventory</td>
+        <td>CRITICAL</td>
+        <td>7 ms</td>
+        <td>
+          <div>Field 'status' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory.status)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-REL-001</code></td>
+        <td><span style="background:#7f1d1d; color:#f87171; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">FAIL</span></td>
+        <td>RELATIONSHIP</td>
+        <td>inventory</td>
+        <td>CRITICAL</td>
+        <td>6 ms</td>
+        <td>
+          <div>Field 'itemId' references 'items'; passing existing referenced ID returns HTTP 201</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory.itemId -> items)</div>
+          
+        <div style="margin-top:8px; padding:10px; background:#1e1e1e; border-left:3px solid #ef4444; border-radius:4px; font-family:monospace; font-size:12px;">
+          <div style="color:#f87171; font-weight:bold;">Error: Prerequisite referenced record creation failed or referencedRecordId is undefined
+
+[2mexpect([22m[31mreceived[39m[2m).[22mtoBeDefined[2m()[22m
+
+Received: [31mundefined[39m</div>
+          <div style="color:#9ca3af; margin-top:4px;">Location: forms/inventory.spec.ts:815</div>
+          <details><summary style="cursor:pointer; color:#60a5fa; margin-top:4px;">Stack Trace</summary><pre style="color:#d1d5db; font-size:11px; white-space:pre-wrap; overflow-x:auto;">Error: Prerequisite referenced record creation failed or referencedRecordId is undefined
+
+[2mexpect([22m[31mreceived[39m[2m).[22mtoBeDefined[2m()[22m
+
+Received: [31mundefined[39m
+    at C:\ContextPi Application\contextpi\generated-tests\forms\inventory.spec.ts:816:117</pre></details>
+        </div>
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-REL-002</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>RELATIONSHIP</td>
+        <td>inventory</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'itemId' references 'items'; passing non-existent ID '65f000...' returns HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory.itemId -> items)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-REL-003</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>RELATIONSHIP</td>
+        <td>inventory</td>
+        <td>CRITICAL</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'warehouseId' references 'warehouses'; passing existing referenced ID returns HTTP 201</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory.warehouseId -> warehouses)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-INVENTORY-REL-004</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>RELATIONSHIP</td>
+        <td>inventory</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'warehouseId' references 'warehouses'; passing non-existent ID '65f000...' returns HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (inventory.warehouseId -> warehouses)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-CRUD-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>items</td>
+        <td>CRITICAL</td>
+        <td>118 ms</td>
+        <td>
+          <div>Validate creation of items with valid payload</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-CRUD-002</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>items</td>
+        <td>MEDIUM</td>
+        <td>19 ms</td>
+        <td>
+          <div>Fetch items record using ID returned from creation</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-CRUD-003</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>items</td>
+        <td>MEDIUM</td>
+        <td>20 ms</td>
+        <td>
+          <div>Fetch array list of items entities</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-CRUD-004</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>items</td>
+        <td>MEDIUM</td>
+        <td>68 ms</td>
+        <td>
+          <div>Query items with filter parameters</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-CRUD-005</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>items</td>
+        <td>HIGH</td>
+        <td>22 ms</td>
+        <td>
+          <div>Modify existing items fields</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-CRUD-006</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>items</td>
+        <td>HIGH</td>
+        <td>13 ms</td>
+        <td>
+          <div>Remove items by ID</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-CRUD-007</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>items</td>
+        <td>MEDIUM</td>
+        <td>75 ms</td>
+        <td>
+          <div>Deleted items record should return 404 or be excluded from query results</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-CRUD-008</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>items</td>
+        <td>CRITICAL</td>
+        <td>12 ms</td>
+        <td>
+          <div>Omit mandatory field 'itemCode' to assert HTTP 400 rejection</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.itemCode)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-CRUD-009</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>items</td>
+        <td>HIGH</td>
+        <td>15 ms</td>
+        <td>
+          <div>Send string for numeric field 'price' to assert HTTP 400 rejection</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.price)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-BULK-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>BULK_UPLOAD</td>
+        <td>items</td>
+        <td>HIGH</td>
+        <td>25 ms</td>
+        <td>
+          <div>Valid bulk CSV upload for items schema returns HTTP 200</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.bulk)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-FIELD-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>items</td>
+        <td>CRITICAL</td>
+        <td>9 ms</td>
+        <td>
+          <div>Field 'itemCode' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.itemCode)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-FIELD-002</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>items</td>
+        <td>CRITICAL</td>
+        <td>11 ms</td>
+        <td>
+          <div>Field 'itemName' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.itemName)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-FIELD-003</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>items</td>
+        <td>CRITICAL</td>
+        <td>19 ms</td>
+        <td>
+          <div>Field 'price' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.price)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-FIELD-004</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>items</td>
+        <td>HIGH</td>
+        <td>10 ms</td>
+        <td>
+          <div>Field 'price' expects numeric type; sending string must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.price)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-FIELD-005</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>items</td>
+        <td>CRITICAL</td>
+        <td>13 ms</td>
+        <td>
+          <div>Field 'costPrice' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.costPrice)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-FIELD-006</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>items</td>
+        <td>HIGH</td>
+        <td>7 ms</td>
+        <td>
+          <div>Field 'costPrice' expects numeric type; sending string must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.costPrice)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-FIELD-007</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>items</td>
+        <td>CRITICAL</td>
+        <td>90 ms</td>
+        <td>
+          <div>Field 'category' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.category)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-FIELD-008</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>items</td>
+        <td>CRITICAL</td>
+        <td>17 ms</td>
+        <td>
+          <div>Field 'stockQuantity' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.stockQuantity)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-FIELD-009</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>items</td>
+        <td>HIGH</td>
+        <td>8 ms</td>
+        <td>
+          <div>Field 'stockQuantity' expects numeric type; sending string must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.stockQuantity)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-FIELD-010</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>items</td>
+        <td>CRITICAL</td>
+        <td>8 ms</td>
+        <td>
+          <div>Field 'reorderLevel' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.reorderLevel)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-FIELD-011</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>items</td>
+        <td>HIGH</td>
+        <td>7 ms</td>
+        <td>
+          <div>Field 'reorderLevel' expects numeric type; sending string must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.reorderLevel)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-FIELD-012</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>items</td>
+        <td>CRITICAL</td>
+        <td>15 ms</td>
+        <td>
+          <div>Field 'status' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.status)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-FIELD-013</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>items</td>
+        <td>HIGH</td>
+        <td>10 ms</td>
+        <td>
+          <div>Field 'supplierWebsite' requires URL format; malformed URL must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.supplierWebsite)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-REL-001</code></td>
+        <td><span style="background:#7f1d1d; color:#f87171; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">FAIL</span></td>
+        <td>RELATIONSHIP</td>
+        <td>items</td>
+        <td>CRITICAL</td>
+        <td>6 ms</td>
+        <td>
+          <div>Field 'supplierId' references 'suppliers'; passing existing referenced ID returns HTTP 201</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.supplierId -> suppliers)</div>
+          
+        <div style="margin-top:8px; padding:10px; background:#1e1e1e; border-left:3px solid #ef4444; border-radius:4px; font-family:monospace; font-size:12px;">
+          <div style="color:#f87171; font-weight:bold;">Error: Prerequisite referenced record creation failed or referencedRecordId is undefined
+
+[2mexpect([22m[31mreceived[39m[2m).[22mtoBeDefined[2m()[22m
+
+Received: [31mundefined[39m</div>
+          <div style="color:#9ca3af; margin-top:4px;">Location: forms/items.spec.ts:1247</div>
+          <details><summary style="cursor:pointer; color:#60a5fa; margin-top:4px;">Stack Trace</summary><pre style="color:#d1d5db; font-size:11px; white-space:pre-wrap; overflow-x:auto;">Error: Prerequisite referenced record creation failed or referencedRecordId is undefined
+
+[2mexpect([22m[31mreceived[39m[2m).[22mtoBeDefined[2m()[22m
+
+Received: [31mundefined[39m
+    at C:\ContextPi Application\contextpi\generated-tests\forms\items.spec.ts:1248:117</pre></details>
+        </div>
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-REL-002</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>RELATIONSHIP</td>
+        <td>items</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'supplierId' references 'suppliers'; passing non-existent ID '65f000...' returns HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.supplierId -> suppliers)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-REL-003</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>RELATIONSHIP</td>
+        <td>items</td>
+        <td>CRITICAL</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'warehouseId' references 'warehouses'; passing existing referenced ID returns HTTP 201</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.warehouseId -> warehouses)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ITEMS-REL-004</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>RELATIONSHIP</td>
+        <td>items</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'warehouseId' references 'warehouses'; passing non-existent ID '65f000...' returns HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (items.warehouseId -> warehouses)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-NONEXISTENTENTITY-CRUD-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>NON_EXISTENT_ENTITY</td>
+        <td>MEDIUM</td>
+        <td>54 ms</td>
+        <td>
+          <div>Targeting unknown schema route must return HTTP 404</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (NON_EXISTENT_ENTITY)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-CRUD-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>orders</td>
+        <td>CRITICAL</td>
+        <td>77 ms</td>
+        <td>
+          <div>Validate creation of orders with valid payload</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-CRUD-002</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>orders</td>
+        <td>MEDIUM</td>
+        <td>18 ms</td>
+        <td>
+          <div>Fetch orders record using ID returned from creation</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-CRUD-003</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>orders</td>
+        <td>MEDIUM</td>
+        <td>17 ms</td>
+        <td>
+          <div>Fetch array list of orders entities</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-CRUD-004</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>orders</td>
+        <td>MEDIUM</td>
+        <td>15 ms</td>
+        <td>
+          <div>Query orders with filter parameters</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-CRUD-005</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>orders</td>
+        <td>HIGH</td>
+        <td>78 ms</td>
+        <td>
+          <div>Modify existing orders fields</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-CRUD-006</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>orders</td>
+        <td>HIGH</td>
+        <td>17 ms</td>
+        <td>
+          <div>Remove orders by ID</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-CRUD-007</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>orders</td>
+        <td>MEDIUM</td>
+        <td>15 ms</td>
+        <td>
+          <div>Deleted orders record should return 404 or be excluded from query results</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-CRUD-008</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>orders</td>
+        <td>CRITICAL</td>
+        <td>12 ms</td>
+        <td>
+          <div>Omit mandatory field 'orderId' to assert HTTP 400 rejection</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.orderId)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-CRUD-009</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>orders</td>
+        <td>HIGH</td>
+        <td>13 ms</td>
+        <td>
+          <div>Send string for numeric field 'quantity' to assert HTTP 400 rejection</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.quantity)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-BULK-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>BULK_UPLOAD</td>
+        <td>orders</td>
+        <td>HIGH</td>
+        <td>51 ms</td>
+        <td>
+          <div>Valid bulk CSV upload for orders schema returns HTTP 200</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.bulk)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-FIELD-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>orders</td>
+        <td>CRITICAL</td>
+        <td>12 ms</td>
+        <td>
+          <div>Field 'orderId' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.orderId)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-FIELD-002</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>orders</td>
+        <td>CRITICAL</td>
+        <td>8 ms</td>
+        <td>
+          <div>Field 'itemId' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.itemId)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-FIELD-003</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>orders</td>
+        <td>CRITICAL</td>
+        <td>8 ms</td>
+        <td>
+          <div>Field 'quantity' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.quantity)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-FIELD-004</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>orders</td>
+        <td>HIGH</td>
+        <td>7 ms</td>
+        <td>
+          <div>Field 'quantity' expects numeric type; sending string must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.quantity)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-FIELD-005</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>orders</td>
+        <td>HIGH</td>
+        <td>7 ms</td>
+        <td>
+          <div>Field 'unitPrice' expects numeric type; sending string must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.unitPrice)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-FIELD-006</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>orders</td>
+        <td>HIGH</td>
+        <td>8 ms</td>
+        <td>
+          <div>Field 'totalAmount' expects numeric type; sending string must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.totalAmount)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-FIELD-007</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>orders</td>
+        <td>HIGH</td>
+        <td>9 ms</td>
+        <td>
+          <div>Field 'discountAmount' expects numeric type; sending string must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.discountAmount)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-FIELD-008</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>orders</td>
+        <td>HIGH</td>
+        <td>7 ms</td>
+        <td>
+          <div>Field 'taxAmount' expects numeric type; sending string must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.taxAmount)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-FIELD-009</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>orders</td>
+        <td>HIGH</td>
+        <td>8 ms</td>
+        <td>
+          <div>Field 'finalAmount' expects numeric type; sending string must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.finalAmount)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-FIELD-010</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>orders</td>
+        <td>CRITICAL</td>
+        <td>17 ms</td>
+        <td>
+          <div>Field 'customerEmail' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.customerEmail)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-FIELD-011</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>orders</td>
+        <td>CRITICAL</td>
+        <td>12 ms</td>
+        <td>
+          <div>Field 'orderDate' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.orderDate)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-FIELD-012</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>orders</td>
+        <td>CRITICAL</td>
+        <td>8 ms</td>
+        <td>
+          <div>Field 'status' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.status)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-REL-001</code></td>
+        <td><span style="background:#7f1d1d; color:#f87171; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">FAIL</span></td>
+        <td>RELATIONSHIP</td>
+        <td>orders</td>
+        <td>CRITICAL</td>
+        <td>5 ms</td>
+        <td>
+          <div>Field 'customerId' references 'customers'; passing existing referenced ID returns HTTP 201</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.customerId -> customers)</div>
+          
+        <div style="margin-top:8px; padding:10px; background:#1e1e1e; border-left:3px solid #ef4444; border-radius:4px; font-family:monospace; font-size:12px;">
+          <div style="color:#f87171; font-weight:bold;">Error: Prerequisite referenced record creation failed or referencedRecordId is undefined
+
+[2mexpect([22m[31mreceived[39m[2m).[22mtoBeDefined[2m()[22m
+
+Received: [31mundefined[39m</div>
+          <div style="color:#9ca3af; margin-top:4px;">Location: forms/orders.spec.ts:1081</div>
+          <details><summary style="cursor:pointer; color:#60a5fa; margin-top:4px;">Stack Trace</summary><pre style="color:#d1d5db; font-size:11px; white-space:pre-wrap; overflow-x:auto;">Error: Prerequisite referenced record creation failed or referencedRecordId is undefined
+
+[2mexpect([22m[31mreceived[39m[2m).[22mtoBeDefined[2m()[22m
+
+Received: [31mundefined[39m
+    at C:\ContextPi Application\contextpi\generated-tests\forms\orders.spec.ts:1082:117</pre></details>
+        </div>
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-REL-002</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>RELATIONSHIP</td>
+        <td>orders</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'customerId' references 'customers'; passing non-existent ID '65f000...' returns HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.customerId -> customers)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-REL-003</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>RELATIONSHIP</td>
+        <td>orders</td>
+        <td>CRITICAL</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'itemId' references 'items'; passing existing referenced ID returns HTTP 201</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.itemId -> items)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-REL-004</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>RELATIONSHIP</td>
+        <td>orders</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'itemId' references 'items'; passing non-existent ID '65f000...' returns HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.itemId -> items)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-REL-005</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>RELATIONSHIP</td>
+        <td>orders</td>
+        <td>CRITICAL</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'warehouseId' references 'warehouses'; passing existing referenced ID returns HTTP 201</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.warehouseId -> warehouses)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-ORDERS-REL-006</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>RELATIONSHIP</td>
+        <td>orders</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'warehouseId' references 'warehouses'; passing non-existent ID '65f000...' returns HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (orders.warehouseId -> warehouses)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SHIPMENTS-CRUD-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>shipments</td>
+        <td>CRITICAL</td>
+        <td>58 ms</td>
+        <td>
+          <div>Validate creation of shipments with valid payload</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (shipments)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SHIPMENTS-CRUD-002</code></td>
+        <td><span style="background:#7f1d1d; color:#f87171; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">FAIL</span></td>
+        <td>CRUD</td>
+        <td>shipments</td>
+        <td>MEDIUM</td>
+        <td>24 ms</td>
+        <td>
+          <div>Fetch shipments record using ID returned from creation</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (shipments)</div>
+          
+        <div style="margin-top:8px; padding:10px; background:#1e1e1e; border-left:3px solid #ef4444; border-radius:4px; font-family:monospace; font-size:12px;">
+          <div style="color:#f87171; font-weight:bold;">Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+Expected: [32m200[39m
+Received: [31m404[39m</div>
+          <div style="color:#9ca3af; margin-top:4px;">Location: forms/shipments.spec.ts:90</div>
+          <details><summary style="cursor:pointer; color:#60a5fa; margin-top:4px;">Stack Trace</summary><pre style="color:#d1d5db; font-size:11px; white-space:pre-wrap; overflow-x:auto;">Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+Expected: [32m200[39m
+Received: [31m404[39m
+    at C:\ContextPi Application\contextpi\generated-tests\forms\shipments.spec.ts:105:31</pre></details>
+        </div>
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SHIPMENTS-CRUD-003</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>shipments</td>
+        <td>MEDIUM</td>
+        <td>0 ms</td>
+        <td>
+          <div>Fetch array list of shipments entities</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (shipments)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SHIPMENTS-CRUD-004</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>shipments</td>
+        <td>MEDIUM</td>
+        <td>0 ms</td>
+        <td>
+          <div>Query shipments with filter parameters</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (shipments)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SHIPMENTS-CRUD-005</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>shipments</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Modify existing shipments fields</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (shipments)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SHIPMENTS-CRUD-006</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>shipments</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Remove shipments by ID</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (shipments)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SHIPMENTS-CRUD-007</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>shipments</td>
+        <td>MEDIUM</td>
+        <td>0 ms</td>
+        <td>
+          <div>Deleted shipments record should return 404 or be excluded from query results</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (shipments)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SHIPMENTS-CRUD-008</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>shipments</td>
+        <td>CRITICAL</td>
+        <td>0 ms</td>
+        <td>
+          <div>Omit mandatory field 'shipmentId' to assert HTTP 400 rejection</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (shipments.shipmentId)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SHIPMENTS-CRUD-009</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>shipments</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Send string for numeric field 'shippingCost' to assert HTTP 400 rejection</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (shipments.shippingCost)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SHIPMENTS-BULK-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>BULK_UPLOAD</td>
+        <td>shipments</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Valid bulk CSV upload for shipments schema returns HTTP 200</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (shipments.bulk)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SHIPMENTS-FIELD-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>shipments</td>
+        <td>CRITICAL</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'shipmentId' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (shipments.shipmentId)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SHIPMENTS-FIELD-002</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>shipments</td>
+        <td>CRITICAL</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'orderId' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (shipments.orderId)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SHIPMENTS-FIELD-003</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>shipments</td>
+        <td>CRITICAL</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'warehouseId' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (shipments.warehouseId)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SHIPMENTS-FIELD-004</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>shipments</td>
+        <td>CRITICAL</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'status' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (shipments.status)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SHIPMENTS-FIELD-005</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>shipments</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'shippingCost' expects numeric type; sending string must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (shipments.shippingCost)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SHIPMENTS-REL-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>RELATIONSHIP</td>
+        <td>shipments</td>
+        <td>CRITICAL</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'orderId' references 'orders'; passing existing referenced ID returns HTTP 201</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (shipments.orderId -> orders)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SHIPMENTS-REL-002</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>RELATIONSHIP</td>
+        <td>shipments</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'orderId' references 'orders'; passing non-existent ID '65f000...' returns HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (shipments.orderId -> orders)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SHIPMENTS-REL-003</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>RELATIONSHIP</td>
+        <td>shipments</td>
+        <td>CRITICAL</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'warehouseId' references 'warehouses'; passing existing referenced ID returns HTTP 201</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (shipments.warehouseId -> warehouses)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SHIPMENTS-REL-004</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>RELATIONSHIP</td>
+        <td>shipments</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'warehouseId' references 'warehouses'; passing non-existent ID '65f000...' returns HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (shipments.warehouseId -> warehouses)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SUPPLIERS-CRUD-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>suppliers</td>
+        <td>CRITICAL</td>
+        <td>55 ms</td>
+        <td>
+          <div>Validate creation of suppliers with valid payload</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (suppliers)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SUPPLIERS-CRUD-002</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>suppliers</td>
+        <td>MEDIUM</td>
+        <td>83 ms</td>
+        <td>
+          <div>Fetch suppliers record using ID returned from creation</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (suppliers)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SUPPLIERS-CRUD-003</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>suppliers</td>
+        <td>MEDIUM</td>
+        <td>20 ms</td>
+        <td>
+          <div>Fetch array list of suppliers entities</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (suppliers)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SUPPLIERS-CRUD-004</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>suppliers</td>
+        <td>MEDIUM</td>
+        <td>111 ms</td>
+        <td>
+          <div>Query suppliers with filter parameters</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (suppliers)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SUPPLIERS-CRUD-005</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>suppliers</td>
+        <td>HIGH</td>
+        <td>24 ms</td>
+        <td>
+          <div>Modify existing suppliers fields</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (suppliers)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SUPPLIERS-CRUD-006</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>suppliers</td>
+        <td>HIGH</td>
+        <td>13 ms</td>
+        <td>
+          <div>Remove suppliers by ID</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (suppliers)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SUPPLIERS-CRUD-007</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>suppliers</td>
+        <td>MEDIUM</td>
+        <td>68 ms</td>
+        <td>
+          <div>Deleted suppliers record should return 404 or be excluded from query results</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (suppliers)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SUPPLIERS-CRUD-008</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>suppliers</td>
+        <td>CRITICAL</td>
+        <td>13 ms</td>
+        <td>
+          <div>Omit mandatory field 'supplierCode' to assert HTTP 400 rejection</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (suppliers.supplierCode)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SUPPLIERS-CRUD-009</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>suppliers</td>
+        <td>HIGH</td>
+        <td>17 ms</td>
+        <td>
+          <div>Send string for numeric field 'rating' to assert HTTP 400 rejection</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (suppliers.rating)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SUPPLIERS-BULK-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>BULK_UPLOAD</td>
+        <td>suppliers</td>
+        <td>HIGH</td>
+        <td>17 ms</td>
+        <td>
+          <div>Valid bulk CSV upload for suppliers schema returns HTTP 200</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (suppliers.bulk)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SUPPLIERS-FIELD-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>suppliers</td>
+        <td>CRITICAL</td>
+        <td>11 ms</td>
+        <td>
+          <div>Field 'supplierCode' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (suppliers.supplierCode)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SUPPLIERS-FIELD-002</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>suppliers</td>
+        <td>CRITICAL</td>
+        <td>9 ms</td>
+        <td>
+          <div>Field 'supplierName' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (suppliers.supplierName)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SUPPLIERS-FIELD-003</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>suppliers</td>
+        <td>CRITICAL</td>
+        <td>8 ms</td>
+        <td>
+          <div>Field 'email' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (suppliers.email)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SUPPLIERS-FIELD-004</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>suppliers</td>
+        <td>HIGH</td>
+        <td>8 ms</td>
+        <td>
+          <div>Field 'website' requires URL format; malformed URL must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (suppliers.website)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SUPPLIERS-FIELD-005</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>suppliers</td>
+        <td>HIGH</td>
+        <td>8 ms</td>
+        <td>
+          <div>Field 'rating' expects numeric type; sending string must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (suppliers.rating)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-SUPPLIERS-FIELD-006</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>suppliers</td>
+        <td>CRITICAL</td>
+        <td>17 ms</td>
+        <td>
+          <div>Field 'status' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (suppliers.status)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-WAREHOUSES-CRUD-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>warehouses</td>
+        <td>CRITICAL</td>
+        <td>16 ms</td>
+        <td>
+          <div>Validate creation of warehouses with valid payload</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (warehouses)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-WAREHOUSES-CRUD-002</code></td>
+        <td><span style="background:#7f1d1d; color:#f87171; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">FAIL</span></td>
+        <td>CRUD</td>
+        <td>warehouses</td>
+        <td>MEDIUM</td>
+        <td>82 ms</td>
+        <td>
+          <div>Fetch warehouses record using ID returned from creation</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (warehouses)</div>
+          
+        <div style="margin-top:8px; padding:10px; background:#1e1e1e; border-left:3px solid #ef4444; border-radius:4px; font-family:monospace; font-size:12px;">
+          <div style="color:#f87171; font-weight:bold;">Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+Expected: [32m200[39m
+Received: [31m404[39m</div>
+          <div style="color:#9ca3af; margin-top:4px;">Location: forms/warehouses.spec.ts:90</div>
+          <details><summary style="cursor:pointer; color:#60a5fa; margin-top:4px;">Stack Trace</summary><pre style="color:#d1d5db; font-size:11px; white-space:pre-wrap; overflow-x:auto;">Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+Expected: [32m200[39m
+Received: [31m404[39m
+    at C:\ContextPi Application\contextpi\generated-tests\forms\warehouses.spec.ts:105:31</pre></details>
+        </div>
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-WAREHOUSES-CRUD-003</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>warehouses</td>
+        <td>MEDIUM</td>
+        <td>0 ms</td>
+        <td>
+          <div>Fetch array list of warehouses entities</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (warehouses)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-WAREHOUSES-CRUD-004</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>warehouses</td>
+        <td>MEDIUM</td>
+        <td>0 ms</td>
+        <td>
+          <div>Query warehouses with filter parameters</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (warehouses)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-WAREHOUSES-CRUD-005</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>warehouses</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Modify existing warehouses fields</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (warehouses)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-WAREHOUSES-CRUD-006</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>warehouses</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Remove warehouses by ID</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (warehouses)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-WAREHOUSES-CRUD-007</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>warehouses</td>
+        <td>MEDIUM</td>
+        <td>0 ms</td>
+        <td>
+          <div>Deleted warehouses record should return 404 or be excluded from query results</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (warehouses)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-WAREHOUSES-CRUD-008</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>warehouses</td>
+        <td>CRITICAL</td>
+        <td>0 ms</td>
+        <td>
+          <div>Omit mandatory field 'warehouseCode' to assert HTTP 400 rejection</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (warehouses.warehouseCode)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-WAREHOUSES-CRUD-009</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>CRUD</td>
+        <td>warehouses</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Send string for numeric field 'capacity' to assert HTTP 400 rejection</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (warehouses.capacity)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-WAREHOUSES-BULK-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>BULK_UPLOAD</td>
+        <td>warehouses</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Valid bulk CSV upload for warehouses schema returns HTTP 200</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (warehouses.bulk)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-WAREHOUSES-FIELD-001</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>warehouses</td>
+        <td>CRITICAL</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'warehouseCode' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (warehouses.warehouseCode)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-WAREHOUSES-FIELD-002</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>warehouses</td>
+        <td>CRITICAL</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'warehouseName' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (warehouses.warehouseName)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-WAREHOUSES-FIELD-003</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>warehouses</td>
+        <td>CRITICAL</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'capacity' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (warehouses.capacity)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-WAREHOUSES-FIELD-004</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>warehouses</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'capacity' expects numeric type; sending string must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (warehouses.capacity)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-WAREHOUSES-FIELD-005</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>warehouses</td>
+        <td>CRITICAL</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'currentUtilization' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (warehouses.currentUtilization)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-WAREHOUSES-FIELD-006</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>warehouses</td>
+        <td>HIGH</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'currentUtilization' expects numeric type; sending string must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (warehouses.currentUtilization)</div>
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code style="background:#334155; padding:2px 6px; border-radius:4px; color:#f1f5f9;">TC-WAREHOUSES-FIELD-007</code></td>
+        <td><span style="background:#064e3b; color:#34d399; padding:3px 8px; border-radius:12px; font-weight:bold; font-size:11px;">PASS</span></td>
+        <td>FIELD_VALIDATION</td>
+        <td>warehouses</td>
+        <td>CRITICAL</td>
+        <td>0 ms</td>
+        <td>
+          <div>Field 'status' is mandatory; omitting it must return HTTP 400</div>
+          <div style="font-size:11px; color:#94a3b8; margin-top:2px;">Source: MONGO_SCHEMA (warehouses.status)</div>
+          
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

@@ -237,7 +237,7 @@ export const apiService = {
       summary: ExecutionSummary;
       reportLocation: any;
       htmlContent: string;
-    }>('/reports/latest'),
+    }>('/reports/latest?format=json'),
 
   getReport: (id: string) =>
     request<{
@@ -247,5 +247,5 @@ export const apiService = {
       results: any[];
       reportLocation: any;
       htmlContent: string;
-    }>(`/reports/${id}`)
+    }>(`/reports/${id}?format=json`)
 };

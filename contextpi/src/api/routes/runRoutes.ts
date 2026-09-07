@@ -382,9 +382,9 @@ runRouter.get('/runs/latest', (_req: Request, res: Response): void => {
 
 /**
  * GET /api/reports/latest
- * Returns latest execution HTML report content
+ * Returns latest execution HTML report content (HTML UI by default/raw, JSON if requested)
  */
-runRouter.get('/reports/latest', async (_req: Request, res: Response): Promise<void> => {
+runRouter.get('/reports/latest', async (req: Request, res: Response): Promise<void> => {
   const latestRun = apiState.getLatestTestRun();
   if (!latestRun || !latestRun.reportLocation?.htmlReportPath) {
     res.status(404).json({
@@ -399,10 +399,80 @@ runRouter.get('/reports/latest', async (_req: Request, res: Response): Promise<v
 
   try {
     const htmlContent = await fs.readFile(latestRun.reportLocation.htmlReportPath, 'utf-8');
-    res.json({
-      success: true,
-      htmlContent
+
+    const format = req.query.format as string | undefined;
+    const acceptHeader = req.headers.accept || '';
+    const contentTypeHeader = (req.headers['content-type'] as string) || '';
+
+    const wantsJson = format === 'json' ||
+      (format !== 'raw' && format !== 'html' && (acceptHeader.includes('application/json') || contentTypeHeader.includes('application/json')));
+
+    if (wantsJson) {
+      res.json({
+        success: true,
+        executionId: latestRun.executionId,
+        summary: latestRun.summary,
+        reportLocation: latestRun.reportLocation,
+        htmlContent
+      });
+      return;
+    }
+
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.send(htmlContent);
+  } catch {
+    res.status(404).json({
+      success: false,
+      error: {
+        code: 'REPORT_FILE_NOT_FOUND',
+        message: 'Execution report file does not exist on disk.'
+      }
     });
+  }
+});
+
+/**
+ * GET /api/reports/:id
+ * Returns specific execution HTML report content
+ */
+runRouter.get('/reports/:id', async (req: Request, res: Response): Promise<void> => {
+  const cleanRunId = sanitizeId(req.params.id);
+  const run = cleanRunId === 'latest' ? apiState.getLatestTestRun() : apiState.getTestRun(cleanRunId) || apiState.getLatestTestRun();
+  if (!run || !run.reportLocation?.htmlReportPath) {
+    res.status(404).json({
+      success: false,
+      error: {
+        code: 'REPORT_NOT_FOUND',
+        message: `No execution report found for id: ${cleanRunId}`
+      }
+    });
+    return;
+  }
+
+  try {
+    const htmlContent = await fs.readFile(run.reportLocation.htmlReportPath, 'utf-8');
+
+    const format = req.query.format as string | undefined;
+    const acceptHeader = req.headers.accept || '';
+    const contentTypeHeader = (req.headers['content-type'] as string) || '';
+
+    const wantsJson = format === 'json' ||
+      (format !== 'raw' && format !== 'html' && (acceptHeader.includes('application/json') || contentTypeHeader.includes('application/json')));
+
+    if (wantsJson) {
+      res.json({
+        success: true,
+        executionId: run.executionId,
+        summary: run.summary,
+        results: run.results,
+        reportLocation: run.reportLocation,
+        htmlContent
+      });
+      return;
+    }
+
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.send(htmlContent);
   } catch {
     res.status(404).json({
       success: false,

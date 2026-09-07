@@ -42,17 +42,30 @@ test.describe.serial('Form Entity items API Spec', () => {
    */
   test('TC-ITEMS-CRUD-001 — Create items - Happy Path', async ({ request }) => {
     const payload = {
-    "itemCode": "ITM-1101",
-    "itemName": "Synthetic Industrial Sensor",
-    "price": 149.99,
+    "itemCode": "ITM10101",
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
     "category": "electronics",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": 49.99,
+    "costPrice": 32.49,
     "stockQuantity": 50,
+    "reorderLevel": 20,
+    "supplierId": "6a8bca5862985f737dee03e108",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456880",
+    "unit": "pcs",
+    "status": "ACTIVE",
     "tags": [
-        "sensor",
-        "industrial"
+        "electronics",
+        "supply",
+        "grade-1"
     ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210"
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
@@ -169,17 +182,30 @@ test.describe.serial('Form Entity items API Spec', () => {
     const payload = {
     "schemaName": "items",
     "query": {
-        "itemCode": "ITM-1101",
-        "itemName": "Synthetic Industrial Sensor",
-        "price": 149.99,
+        "itemCode": "ITM10101",
+        "itemName": "Professional ELECTRONICS Product 1",
+        "description": "High performance grade item engineered for electronics operations.",
         "category": "electronics",
+        "subCategory": "SubCategory-1",
+        "brand": "NexaBrand-1",
+        "price": 49.99,
+        "costPrice": 32.49,
         "stockQuantity": 50,
+        "reorderLevel": 20,
+        "supplierId": "6a8bca5862985f737dee03e108",
+        "warehouseId": "6a8bca5862985f737dee07d100",
+        "sku": "SKU-ELE-ITM10001",
+        "barcode": "890123456880",
+        "unit": "pcs",
+        "status": "ACTIVE",
         "tags": [
-            "sensor",
-            "industrial"
+            "electronics",
+            "supply",
+            "grade-1"
         ],
-        "supplierWebsite": "https://supplier.example.com",
-        "supportPhone": "9876543210"
+        "supplierWebsite": "https://supplier1.com",
+        "supportPhone": "18005559999",
+        "isDeleted": false
     }
 };
 
@@ -218,17 +244,30 @@ test.describe.serial('Form Entity items API Spec', () => {
   test('TC-ITEMS-CRUD-005 — Update items record', async ({ request }) => {
     expect(createdRecordId, 'Prerequisite record creation failed or createdRecordId is undefined').toBeDefined();
     const payload = {
-    "itemCode": "ITM-1101",
-    "itemName": "Synthetic Industrial Sensor",
-    "price": 149.99,
+    "itemCode": "ITM10101",
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
     "category": "electronics",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": 49.99,
+    "costPrice": 32.49,
     "stockQuantity": 50,
+    "reorderLevel": 20,
+    "supplierId": "6a8bca5862985f737dee03e108",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456880",
+    "unit": "pcs",
+    "status": "ACTIVE",
     "tags": [
-        "sensor",
-        "industrial"
+        "electronics",
+        "supply",
+        "grade-1"
     ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210",
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false,
     "_id": createdRecordId!
 };
 
@@ -336,16 +375,29 @@ test.describe.serial('Form Entity items API Spec', () => {
    */
   test('TC-ITEMS-CRUD-008 — Create items - Missing Mandatory Field \'itemCode\'', async ({ request }) => {
     const payload = {
-    "itemName": "Synthetic Industrial Sensor",
-    "price": 149.99,
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
     "category": "electronics",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": 49.99,
+    "costPrice": 32.49,
     "stockQuantity": 50,
+    "reorderLevel": 20,
+    "supplierId": "6a8bca5862985f737dee03e209",
+    "warehouseId": "6a8bca5862985f737dee07d201",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456981",
+    "unit": "pcs",
+    "status": "ACTIVE",
     "tags": [
-        "sensor",
-        "industrial"
+        "electronics",
+        "supply",
+        "grade-1"
     ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210"
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
@@ -375,17 +427,30 @@ test.describe.serial('Form Entity items API Spec', () => {
    */
   test('TC-ITEMS-CRUD-009 — Create items - Wrong Type for Field \'price\'', async ({ request }) => {
     const payload = {
-    "itemCode": "ITM-1203",
-    "itemName": "Synthetic Industrial Sensor",
-    "price": "INVALID_STRING_VALUE",
+    "itemCode": "ITM10203",
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
     "category": "electronics",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": "INVALID_STRING_VALUE",
+    "costPrice": 32.49,
     "stockQuantity": 50,
+    "reorderLevel": 20,
+    "supplierId": "6a8bca5862985f737dee03e210",
+    "warehouseId": "6a8bca5862985f737dee07d202",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456982",
+    "unit": "pcs",
+    "status": "ACTIVE",
     "tags": [
-        "sensor",
-        "industrial"
+        "electronics",
+        "supply",
+        "grade-1"
     ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210"
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
@@ -417,30 +482,56 @@ test.describe.serial('Form Entity items API Spec', () => {
     "schemaName": "items",
     "records": [
         {
-            "itemCode": "ITM-1302",
-            "itemName": "Synthetic Industrial Sensor",
-            "price": 149.99,
+            "itemCode": "ITM10302",
+            "itemName": "Professional ELECTRONICS Product 1",
+            "description": "High performance grade item engineered for electronics operations.",
             "category": "electronics",
+            "subCategory": "SubCategory-1",
+            "brand": "NexaBrand-1",
+            "price": 49.99,
+            "costPrice": 32.49,
             "stockQuantity": 50,
+            "reorderLevel": 20,
+            "supplierId": "6a8bca5862985f737dee03e309",
+            "warehouseId": "6a8bca5862985f737dee07d301",
+            "sku": "SKU-ELE-ITM10001",
+            "barcode": "890123457081",
+            "unit": "pcs",
+            "status": "ACTIVE",
             "tags": [
-                "sensor",
-                "industrial"
+                "electronics",
+                "supply",
+                "grade-1"
             ],
-            "supplierWebsite": "https://supplier.example.com",
-            "supportPhone": "9876543210"
+            "supplierWebsite": "https://supplier1.com",
+            "supportPhone": "18005559999",
+            "isDeleted": false
         },
         {
-            "itemCode": "ITM-1303",
-            "itemName": "Synthetic Industrial Sensor",
-            "price": 149.99,
+            "itemCode": "ITM10303",
+            "itemName": "Professional ELECTRONICS Product 1",
+            "description": "High performance grade item engineered for electronics operations.",
             "category": "electronics",
+            "subCategory": "SubCategory-1",
+            "brand": "NexaBrand-1",
+            "price": 49.99,
+            "costPrice": 32.49,
             "stockQuantity": 50,
+            "reorderLevel": 20,
+            "supplierId": "6a8bca5862985f737dee03e310",
+            "warehouseId": "6a8bca5862985f737dee07d302",
+            "sku": "SKU-ELE-ITM10001",
+            "barcode": "890123457082",
+            "unit": "pcs",
+            "status": "ACTIVE",
             "tags": [
-                "sensor",
-                "industrial"
+                "electronics",
+                "supply",
+                "grade-1"
             ],
-            "supplierWebsite": "https://supplier.example.com",
-            "supportPhone": "9876543210"
+            "supplierWebsite": "https://supplier1.com",
+            "supportPhone": "18005559999",
+            "isDeleted": false
         }
     ]
 };
@@ -479,16 +570,29 @@ test.describe.serial('Form Entity items API Spec', () => {
    */
   test('TC-ITEMS-FIELD-001 — Field Validation: Missing Mandatory Field \'itemCode\'', async ({ request }) => {
     const payload = {
-    "itemName": "Synthetic Industrial Sensor",
-    "price": 149.99,
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
     "category": "electronics",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": 49.99,
+    "costPrice": 32.49,
     "stockQuantity": 50,
+    "reorderLevel": 20,
+    "supplierId": "6a8bca5862985f737dee03e108",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456880",
+    "unit": "pcs",
+    "status": "ACTIVE",
     "tags": [
-        "sensor",
-        "industrial"
+        "electronics",
+        "supply",
+        "grade-1"
     ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210"
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
@@ -518,16 +622,29 @@ test.describe.serial('Form Entity items API Spec', () => {
    */
   test('TC-ITEMS-FIELD-002 — Field Validation: Missing Mandatory Field \'itemName\'', async ({ request }) => {
     const payload = {
-    "itemCode": "ITM-1101",
-    "price": 149.99,
+    "itemCode": "ITM10101",
+    "description": "High performance grade item engineered for electronics operations.",
     "category": "electronics",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": 49.99,
+    "costPrice": 32.49,
     "stockQuantity": 50,
+    "reorderLevel": 20,
+    "supplierId": "6a8bca5862985f737dee03e108",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456880",
+    "unit": "pcs",
+    "status": "ACTIVE",
     "tags": [
-        "sensor",
-        "industrial"
+        "electronics",
+        "supply",
+        "grade-1"
     ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210"
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
@@ -557,16 +674,29 @@ test.describe.serial('Form Entity items API Spec', () => {
    */
   test('TC-ITEMS-FIELD-003 — Field Validation: Missing Mandatory Field \'price\'', async ({ request }) => {
     const payload = {
-    "itemCode": "ITM-1101",
-    "itemName": "Synthetic Industrial Sensor",
+    "itemCode": "ITM10101",
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
     "category": "electronics",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "costPrice": 32.49,
     "stockQuantity": 50,
+    "reorderLevel": 20,
+    "supplierId": "6a8bca5862985f737dee03e108",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456880",
+    "unit": "pcs",
+    "status": "ACTIVE",
     "tags": [
-        "sensor",
-        "industrial"
+        "electronics",
+        "supply",
+        "grade-1"
     ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210"
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
@@ -596,17 +726,30 @@ test.describe.serial('Form Entity items API Spec', () => {
    */
   test('TC-ITEMS-FIELD-004 — Field Validation: Wrong Data Type for Numeric Field \'price\'', async ({ request }) => {
     const payload = {
-    "itemCode": "ITM-1101",
-    "itemName": "Synthetic Industrial Sensor",
-    "price": "INVALID_NON_NUMERIC_STRING",
+    "itemCode": "ITM10101",
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
     "category": "electronics",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": "INVALID_NON_NUMERIC_STRING",
+    "costPrice": 32.49,
     "stockQuantity": 50,
+    "reorderLevel": 20,
+    "supplierId": "6a8bca5862985f737dee03e108",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456880",
+    "unit": "pcs",
+    "status": "ACTIVE",
     "tags": [
-        "sensor",
-        "industrial"
+        "electronics",
+        "supply",
+        "grade-1"
     ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210"
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
@@ -629,22 +772,139 @@ test.describe.serial('Form Entity items API Spec', () => {
    * Priority: CRITICAL
    * Target Entity: items
    * Source: MONGO_SCHEMA
+   * Source Ref: items.costPrice
+   * Reasoning: Field 'costPrice' is mandatory; omitting it must return HTTP 400
+   * Dependencies: []
+   */
+  test('TC-ITEMS-FIELD-005 — Field Validation: Missing Mandatory Field \'costPrice\'', async ({ request }) => {
+    const payload = {
+    "itemCode": "ITM10101",
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
+    "category": "electronics",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": 49.99,
+    "stockQuantity": 50,
+    "reorderLevel": 20,
+    "supplierId": "6a8bca5862985f737dee03e108",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456880",
+    "unit": "pcs",
+    "status": "ACTIVE",
+    "tags": [
+        "electronics",
+        "supply",
+        "grade-1"
+    ],
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false
+};
+
+    const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
+      data: payload,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-project-name': PROJECT_NAME
+      }
+    });
+
+    expect(response.status()).toBe(400);
+    const body = await response.json();
+    expect(body).toBeDefined();
+    expect(JSON.stringify(body).toLowerCase()).toContain('costprice');
+  });
+
+  /**
+   * Contextπ Generated Playwright API Test
+   * Test ID: TC-ITEMS-FIELD-006
+   * Category: FIELD_VALIDATION
+   * Priority: HIGH
+   * Target Entity: items
+   * Source: MONGO_SCHEMA
+   * Source Ref: items.costPrice
+   * Reasoning: Field 'costPrice' expects numeric type; sending string must return HTTP 400
+   * Dependencies: []
+   */
+  test('TC-ITEMS-FIELD-006 — Field Validation: Wrong Data Type for Numeric Field \'costPrice\'', async ({ request }) => {
+    const payload = {
+    "itemCode": "ITM10101",
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
+    "category": "electronics",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": 49.99,
+    "costPrice": "INVALID_NON_NUMERIC_STRING",
+    "stockQuantity": 50,
+    "reorderLevel": 20,
+    "supplierId": "6a8bca5862985f737dee03e108",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456880",
+    "unit": "pcs",
+    "status": "ACTIVE",
+    "tags": [
+        "electronics",
+        "supply",
+        "grade-1"
+    ],
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false
+};
+
+    const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
+      data: payload,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-project-name': PROJECT_NAME
+      }
+    });
+
+    expect(response.status()).toBe(400);
+    const body = await response.json();
+    expect(body).toBeDefined();
+  });
+
+  /**
+   * Contextπ Generated Playwright API Test
+   * Test ID: TC-ITEMS-FIELD-007
+   * Category: FIELD_VALIDATION
+   * Priority: CRITICAL
+   * Target Entity: items
+   * Source: MONGO_SCHEMA
    * Source Ref: items.category
    * Reasoning: Field 'category' is mandatory; omitting it must return HTTP 400
    * Dependencies: []
    */
-  test('TC-ITEMS-FIELD-005 — Field Validation: Missing Mandatory Field \'category\'', async ({ request }) => {
+  test('TC-ITEMS-FIELD-007 — Field Validation: Missing Mandatory Field \'category\'', async ({ request }) => {
     const payload = {
-    "itemCode": "ITM-1101",
-    "itemName": "Synthetic Industrial Sensor",
-    "price": 149.99,
+    "itemCode": "ITM10101",
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": 49.99,
+    "costPrice": 32.49,
     "stockQuantity": 50,
+    "reorderLevel": 20,
+    "supplierId": "6a8bca5862985f737dee03e108",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456880",
+    "unit": "pcs",
+    "status": "ACTIVE",
     "tags": [
-        "sensor",
-        "industrial"
+        "electronics",
+        "supply",
+        "grade-1"
     ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210"
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
@@ -663,75 +923,40 @@ test.describe.serial('Form Entity items API Spec', () => {
 
   /**
    * Contextπ Generated Playwright API Test
-   * Test ID: TC-ITEMS-FIELD-006
+   * Test ID: TC-ITEMS-FIELD-008
    * Category: FIELD_VALIDATION
-   * Priority: LOW
+   * Priority: CRITICAL
    * Target Entity: items
    * Source: MONGO_SCHEMA
-   * Source Ref: items.category
-   * Reasoning: Field 'category' enum includes 'electronics'; returns HTTP 201
+   * Source Ref: items.stockQuantity
+   * Reasoning: Field 'stockQuantity' is mandatory; omitting it must return HTTP 400
    * Dependencies: []
    */
-  test('TC-ITEMS-FIELD-006 — Field Validation: Allowed Enum Value for Field \'category\'', async ({ request }) => {
+  test('TC-ITEMS-FIELD-008 — Field Validation: Missing Mandatory Field \'stockQuantity\'', async ({ request }) => {
     const payload = {
-    "itemCode": "ITM-1002",
-    "itemName": "Synthetic Industrial Sensor",
-    "price": 149.99,
+    "itemCode": "ITM10101",
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
     "category": "electronics",
-    "stockQuantity": 50,
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": 49.99,
+    "costPrice": 32.49,
+    "reorderLevel": 20,
+    "supplierId": "6a8bca5862985f737dee03e108",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456880",
+    "unit": "pcs",
+    "status": "ACTIVE",
     "tags": [
-        "sensor",
-        "industrial"
+        "electronics",
+        "supply",
+        "grade-1"
     ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210"
-};
-
-    const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
-      data: payload,
-      headers: {
-        'Content-Type': 'application/json',
-        'x-project-name': PROJECT_NAME
-      }
-    });
-
-    expect(response.status()).toBe(201);
-    const body = await response.json();
-    expect(body).toBeDefined();
-    expect(typeof body === 'object' && body !== null).toBeTruthy();
-    if (body.id || body._id || body.data?._id || body.data?.id) {
-      const capturedId = body.id || body._id || body.data?._id || body.data?.id;
-      if (typeof capturedId === 'string' && capturedId.length > 0) {
-        createdRecordId = capturedId;
-      }
-    }
-    expect(createdRecordId || body, 'Positive creation response must return valid record').toBeDefined();
-  });
-
-  /**
-   * Contextπ Generated Playwright API Test
-   * Test ID: TC-ITEMS-FIELD-007
-   * Category: FIELD_VALIDATION
-   * Priority: HIGH
-   * Target Entity: items
-   * Source: MONGO_SCHEMA
-   * Source Ref: items.category
-   * Reasoning: Field 'category' restricted to enum options; unlisted value returns HTTP 400
-   * Dependencies: []
-   */
-  test('TC-ITEMS-FIELD-007 — Field Validation: Unlisted Enum Value for Field \'category\'', async ({ request }) => {
-    const payload = {
-    "itemCode": "ITM-1101",
-    "itemName": "Synthetic Industrial Sensor",
-    "price": 149.99,
-    "category": "UNLISTED_INVALID_ENUM_OPTION_XYZ",
-    "stockQuantity": 50,
-    "tags": [
-        "sensor",
-        "industrial"
-    ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210"
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
@@ -745,11 +970,12 @@ test.describe.serial('Form Entity items API Spec', () => {
     expect(response.status()).toBe(400);
     const body = await response.json();
     expect(body).toBeDefined();
+    expect(JSON.stringify(body).toLowerCase()).toContain('stockquantity');
   });
 
   /**
    * Contextπ Generated Playwright API Test
-   * Test ID: TC-ITEMS-FIELD-008
+   * Test ID: TC-ITEMS-FIELD-009
    * Category: FIELD_VALIDATION
    * Priority: HIGH
    * Target Entity: items
@@ -758,19 +984,32 @@ test.describe.serial('Form Entity items API Spec', () => {
    * Reasoning: Field 'stockQuantity' expects numeric type; sending string must return HTTP 400
    * Dependencies: []
    */
-  test('TC-ITEMS-FIELD-008 — Field Validation: Wrong Data Type for Numeric Field \'stockQuantity\'', async ({ request }) => {
+  test('TC-ITEMS-FIELD-009 — Field Validation: Wrong Data Type for Numeric Field \'stockQuantity\'', async ({ request }) => {
     const payload = {
-    "itemCode": "ITM-1101",
-    "itemName": "Synthetic Industrial Sensor",
-    "price": 149.99,
+    "itemCode": "ITM10101",
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
     "category": "electronics",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": 49.99,
+    "costPrice": 32.49,
     "stockQuantity": "INVALID_NON_NUMERIC_STRING",
+    "reorderLevel": 20,
+    "supplierId": "6a8bca5862985f737dee03e108",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456880",
+    "unit": "pcs",
+    "status": "ACTIVE",
     "tags": [
-        "sensor",
-        "industrial"
+        "electronics",
+        "supply",
+        "grade-1"
     ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210"
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
@@ -788,74 +1027,40 @@ test.describe.serial('Form Entity items API Spec', () => {
 
   /**
    * Contextπ Generated Playwright API Test
-   * Test ID: TC-ITEMS-FIELD-009
-   * Category: FIELD_VALIDATION
-   * Priority: MEDIUM
-   * Target Entity: items
-   * Source: MONGO_SCHEMA
-   * Source Ref: items.stockQuantity
-   * Reasoning: Field 'stockQuantity' specifies default value 0; omitting field applies default
-   * Dependencies: []
-   */
-  test('TC-ITEMS-FIELD-009 — Field Validation: Default Value Verification for Field \'stockQuantity\'', async ({ request }) => {
-    const payload = {
-    "itemCode": "ITM-1003",
-    "itemName": "Synthetic Industrial Sensor",
-    "price": 149.99,
-    "category": "electronics",
-    "tags": [
-        "sensor",
-        "industrial"
-    ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210"
-};
-
-    const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
-      data: payload,
-      headers: {
-        'Content-Type': 'application/json',
-        'x-project-name': PROJECT_NAME
-      }
-    });
-
-    expect(response.status()).toBe(201);
-    const body = await response.json();
-    expect(body).toBeDefined();
-    expect(typeof body === 'object' && body !== null).toBeTruthy();
-    if (body.id || body._id || body.data?._id || body.data?.id) {
-      const capturedId = body.id || body._id || body.data?._id || body.data?.id;
-      if (typeof capturedId === 'string' && capturedId.length > 0) {
-        createdRecordId = capturedId;
-      }
-    }
-    expect(createdRecordId || body, 'Positive creation response must return valid record').toBeDefined();
-  });
-
-  /**
-   * Contextπ Generated Playwright API Test
    * Test ID: TC-ITEMS-FIELD-010
    * Category: FIELD_VALIDATION
-   * Priority: MEDIUM
+   * Priority: CRITICAL
    * Target Entity: items
    * Source: MONGO_SCHEMA
-   * Source Ref: items.tags
-   * Reasoning: Field 'tags' is multi-select; array payload returns HTTP 201
+   * Source Ref: items.reorderLevel
+   * Reasoning: Field 'reorderLevel' is mandatory; omitting it must return HTTP 400
    * Dependencies: []
    */
-  test('TC-ITEMS-FIELD-010 — Field Validation: Array Payload for Multi-Select Field \'tags\'', async ({ request }) => {
+  test('TC-ITEMS-FIELD-010 — Field Validation: Missing Mandatory Field \'reorderLevel\'', async ({ request }) => {
     const payload = {
-    "itemCode": "ITM-1004",
-    "itemName": "Synthetic Industrial Sensor",
-    "price": 149.99,
+    "itemCode": "ITM10101",
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
     "category": "electronics",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": 49.99,
+    "costPrice": 32.49,
     "stockQuantity": 50,
+    "supplierId": "6a8bca5862985f737dee03e108",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456880",
+    "unit": "pcs",
+    "status": "ACTIVE",
     "tags": [
-        "item_1",
-        "item_2"
+        "electronics",
+        "supply",
+        "grade-1"
     ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210"
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
@@ -866,40 +1071,49 @@ test.describe.serial('Form Entity items API Spec', () => {
       }
     });
 
-    expect(response.status()).toBe(201);
+    expect(response.status()).toBe(400);
     const body = await response.json();
     expect(body).toBeDefined();
-    expect(typeof body === 'object' && body !== null).toBeTruthy();
-    if (body.id || body._id || body.data?._id || body.data?.id) {
-      const capturedId = body.id || body._id || body.data?._id || body.data?.id;
-      if (typeof capturedId === 'string' && capturedId.length > 0) {
-        createdRecordId = capturedId;
-      }
-    }
-    expect(createdRecordId || body, 'Positive creation response must return valid record').toBeDefined();
+    expect(JSON.stringify(body).toLowerCase()).toContain('reorderlevel');
   });
 
   /**
    * Contextπ Generated Playwright API Test
    * Test ID: TC-ITEMS-FIELD-011
    * Category: FIELD_VALIDATION
-   * Priority: MEDIUM
+   * Priority: HIGH
    * Target Entity: items
    * Source: MONGO_SCHEMA
-   * Source Ref: items.tags
-   * Reasoning: Field 'tags' is multi-select; sending scalar string instead of array returns HTTP 400
+   * Source Ref: items.reorderLevel
+   * Reasoning: Field 'reorderLevel' expects numeric type; sending string must return HTTP 400
    * Dependencies: []
    */
-  test('TC-ITEMS-FIELD-011 — Field Validation: Non-array Scalar Payload for Multi-Select Field \'tags\'', async ({ request }) => {
+  test('TC-ITEMS-FIELD-011 — Field Validation: Wrong Data Type for Numeric Field \'reorderLevel\'', async ({ request }) => {
     const payload = {
-    "itemCode": "ITM-1101",
-    "itemName": "Synthetic Industrial Sensor",
-    "price": 149.99,
+    "itemCode": "ITM10101",
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
     "category": "electronics",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": 49.99,
+    "costPrice": 32.49,
     "stockQuantity": 50,
-    "tags": "scalar_non_array_string",
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210"
+    "reorderLevel": "INVALID_NON_NUMERIC_STRING",
+    "supplierId": "6a8bca5862985f737dee03e108",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456880",
+    "unit": "pcs",
+    "status": "ACTIVE",
+    "tags": [
+        "electronics",
+        "supply",
+        "grade-1"
+    ],
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
@@ -919,6 +1133,58 @@ test.describe.serial('Form Entity items API Spec', () => {
    * Contextπ Generated Playwright API Test
    * Test ID: TC-ITEMS-FIELD-012
    * Category: FIELD_VALIDATION
+   * Priority: CRITICAL
+   * Target Entity: items
+   * Source: MONGO_SCHEMA
+   * Source Ref: items.status
+   * Reasoning: Field 'status' is mandatory; omitting it must return HTTP 400
+   * Dependencies: []
+   */
+  test('TC-ITEMS-FIELD-012 — Field Validation: Missing Mandatory Field \'status\'', async ({ request }) => {
+    const payload = {
+    "itemCode": "ITM10101",
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
+    "category": "electronics",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": 49.99,
+    "costPrice": 32.49,
+    "stockQuantity": 50,
+    "reorderLevel": 20,
+    "supplierId": "6a8bca5862985f737dee03e108",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456880",
+    "unit": "pcs",
+    "tags": [
+        "electronics",
+        "supply",
+        "grade-1"
+    ],
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false
+};
+
+    const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
+      data: payload,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-project-name': PROJECT_NAME
+      }
+    });
+
+    expect(response.status()).toBe(400);
+    const body = await response.json();
+    expect(body).toBeDefined();
+    expect(JSON.stringify(body).toLowerCase()).toContain('status');
+  });
+
+  /**
+   * Contextπ Generated Playwright API Test
+   * Test ID: TC-ITEMS-FIELD-013
+   * Category: FIELD_VALIDATION
    * Priority: HIGH
    * Target Entity: items
    * Source: MONGO_SCHEMA
@@ -926,19 +1192,32 @@ test.describe.serial('Form Entity items API Spec', () => {
    * Reasoning: Field 'supplierWebsite' requires URL format; malformed URL must return HTTP 400
    * Dependencies: []
    */
-  test('TC-ITEMS-FIELD-012 — Field Validation: Malformed URL for Field \'supplierWebsite\'', async ({ request }) => {
+  test('TC-ITEMS-FIELD-013 — Field Validation: Malformed URL for Field \'supplierWebsite\'', async ({ request }) => {
     const payload = {
-    "itemCode": "ITM-1101",
-    "itemName": "Synthetic Industrial Sensor",
-    "price": 149.99,
+    "itemCode": "ITM10101",
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
     "category": "electronics",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": 49.99,
+    "costPrice": 32.49,
     "stockQuantity": 50,
+    "reorderLevel": 20,
+    "supplierId": "6a8bca5862985f737dee03e108",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456880",
+    "unit": "pcs",
+    "status": "ACTIVE",
     "tags": [
-        "sensor",
-        "industrial"
+        "electronics",
+        "supply",
+        "grade-1"
     ],
     "supplierWebsite": "not-a-valid-url-string",
-    "supportPhone": "9876543210"
+    "supportPhone": "18005559999",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
@@ -956,28 +1235,42 @@ test.describe.serial('Form Entity items API Spec', () => {
 
   /**
    * Contextπ Generated Playwright API Test
-   * Test ID: TC-ITEMS-FIELD-013
-   * Category: FIELD_VALIDATION
-   * Priority: LOW
+   * Test ID: TC-ITEMS-REL-001
+   * Category: RELATIONSHIP
+   * Priority: CRITICAL
    * Target Entity: items
    * Source: MONGO_SCHEMA
-   * Source Ref: items.supportPhone
-   * Reasoning: Field 'supportPhone' expects phone format; valid 10-digit phone string returns HTTP 201
+   * Source Ref: items.supplierId -> suppliers
+   * Reasoning: Field 'supplierId' references 'suppliers'; passing existing referenced ID returns HTTP 201
    * Dependencies: []
    */
-  test('TC-ITEMS-FIELD-013 — Field Validation: Valid Phone Format for Field \'supportPhone\'', async ({ request }) => {
+  test('TC-ITEMS-REL-001 — Relationship Test: Valid Reference \'supplierId\' -> \'suppliers\'', async ({ request }) => {
+    expect(referencedRecordId, 'Prerequisite referenced record creation failed or referencedRecordId is undefined').toBeDefined();
     const payload = {
-    "itemCode": "ITM-1005",
-    "itemName": "Synthetic Industrial Sensor",
-    "price": 149.99,
+    "itemCode": "ITM10101",
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
     "category": "electronics",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": 49.99,
+    "costPrice": 32.49,
     "stockQuantity": 50,
+    "reorderLevel": 20,
+    "supplierId": referencedRecordId!,
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456880",
+    "unit": "pcs",
+    "status": "ACTIVE",
     "tags": [
-        "sensor",
-        "industrial"
+        "electronics",
+        "supply",
+        "grade-1"
     ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210"
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
@@ -1003,28 +1296,41 @@ test.describe.serial('Form Entity items API Spec', () => {
 
   /**
    * Contextπ Generated Playwright API Test
-   * Test ID: TC-ITEMS-FIELD-014
-   * Category: FIELD_VALIDATION
+   * Test ID: TC-ITEMS-REL-002
+   * Category: RELATIONSHIP
    * Priority: HIGH
    * Target Entity: items
    * Source: MONGO_SCHEMA
-   * Source Ref: items.supportPhone
-   * Reasoning: Field 'supportPhone' expects phone format; invalid characters must return HTTP 400
+   * Source Ref: items.supplierId -> suppliers
+   * Reasoning: Field 'supplierId' references 'suppliers'; passing non-existent ID '65f000...' returns HTTP 400
    * Dependencies: []
    */
-  test('TC-ITEMS-FIELD-014 — Field Validation: Invalid Phone Format for Field \'supportPhone\'', async ({ request }) => {
+  test('TC-ITEMS-REL-002 — Relationship Test: Non-existent Reference \'supplierId\' -> \'suppliers\'', async ({ request }) => {
     const payload = {
-    "itemCode": "ITM-1101",
-    "itemName": "Synthetic Industrial Sensor",
-    "price": 149.99,
+    "itemCode": "ITM10101",
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
     "category": "electronics",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": 49.99,
+    "costPrice": 32.49,
     "stockQuantity": 50,
+    "reorderLevel": 20,
+    "supplierId": "65f000000000000000000000",
+    "warehouseId": "6a8bca5862985f737dee07d100",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456880",
+    "unit": "pcs",
+    "status": "ACTIVE",
     "tags": [
-        "sensor",
-        "industrial"
+        "electronics",
+        "supply",
+        "grade-1"
     ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "invalid-phone-abc-xyz"
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
@@ -1042,67 +1348,42 @@ test.describe.serial('Form Entity items API Spec', () => {
 
   /**
    * Contextπ Generated Playwright API Test
-   * Test ID: TC-ITEMS-BIZ-001
-   * Category: BUSINESS_RULE
+   * Test ID: TC-ITEMS-REL-003
+   * Category: RELATIONSHIP
    * Priority: CRITICAL
    * Target Entity: items
-   * Source: BUSINESS_REQUIREMENT
-   * Source Ref: Requirement.BR-RULE-1 (items.price)
-   * Reasoning: Statement requirement specifies items.price must be non-negative (>= 0)
+   * Source: MONGO_SCHEMA
+   * Source Ref: items.warehouseId -> warehouses
+   * Reasoning: Field 'warehouseId' references 'warehouses'; passing existing referenced ID returns HTTP 201
    * Dependencies: []
    */
-  test('TC-ITEMS-BIZ-001 — Business Rule: Negative Value Rejection for \'price\'', async ({ request }) => {
+  test('TC-ITEMS-REL-003 — Relationship Test: Valid Reference \'warehouseId\' -> \'warehouses\'', async ({ request }) => {
+    expect(referencedRecordId, 'Prerequisite referenced record creation failed or referencedRecordId is undefined').toBeDefined();
     const payload = {
-    "itemCode": "ITM-1101",
-    "itemName": "Synthetic Industrial Sensor",
-    "price": -10,
+    "itemCode": "ITM10101",
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
     "category": "electronics",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": 49.99,
+    "costPrice": 32.49,
     "stockQuantity": 50,
+    "reorderLevel": 20,
+    "supplierId": "6a8bca5862985f737dee03e108",
+    "warehouseId": referencedRecordId!,
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456880",
+    "unit": "pcs",
+    "status": "ACTIVE",
     "tags": [
-        "sensor",
-        "industrial"
+        "electronics",
+        "supply",
+        "grade-1"
     ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210"
-};
-
-    const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
-      data: payload,
-      headers: {
-        'Content-Type': 'application/json',
-        'x-project-name': PROJECT_NAME
-      }
-    });
-
-    expect(response.status()).toBe(400);
-    const body = await response.json();
-    expect(body).toBeDefined();
-  });
-
-  /**
-   * Contextπ Generated Playwright API Test
-   * Test ID: TC-ITEMS-BIZ-002
-   * Category: BUSINESS_RULE
-   * Priority: CRITICAL
-   * Target Entity: items
-   * Source: BUSINESS_REQUIREMENT
-   * Source Ref: Requirement.BR-RULE-1 (items.price)
-   * Reasoning: Statement requirement specifies items.price must be non-negative (>= 0); passing 0 returns HTTP 201
-   * Dependencies: []
-   */
-  test('TC-ITEMS-BIZ-002 — Business Rule: Non-negative Value Acceptance for \'price\'', async ({ request }) => {
-    const payload = {
-    "itemCode": "ITM-1101",
-    "itemName": "Synthetic Industrial Sensor",
-    "price": 0,
-    "category": "electronics",
-    "stockQuantity": 50,
-    "tags": [
-        "sensor",
-        "industrial"
-    ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210"
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
@@ -1128,75 +1409,41 @@ test.describe.serial('Form Entity items API Spec', () => {
 
   /**
    * Contextπ Generated Playwright API Test
-   * Test ID: TC-ITEMS-BIZ-003
-   * Category: BUSINESS_RULE
-   * Priority: CRITICAL
+   * Test ID: TC-ITEMS-REL-004
+   * Category: RELATIONSHIP
+   * Priority: HIGH
    * Target Entity: items
-   * Source: BUSINESS_REQUIREMENT
-   * Source Ref: Requirement.BR-RULE-2 (items.itemCode)
-   * Reasoning: Statement requirement specifies exactly 8 digits/characters for items.itemCode
+   * Source: MONGO_SCHEMA
+   * Source Ref: items.warehouseId -> warehouses
+   * Reasoning: Field 'warehouseId' references 'warehouses'; passing non-existent ID '65f000...' returns HTTP 400
    * Dependencies: []
    */
-  test('TC-ITEMS-BIZ-003 — Business Rule: Valid Exact 8 Digits for \'itemCode\'', async ({ request }) => {
+  test('TC-ITEMS-REL-004 — Relationship Test: Non-existent Reference \'warehouseId\' -> \'warehouses\'', async ({ request }) => {
     const payload = {
-    "itemCode": "11111111",
-    "itemName": "Synthetic Industrial Sensor",
-    "price": 149.99,
+    "itemCode": "ITM10101",
+    "itemName": "Professional ELECTRONICS Product 1",
+    "description": "High performance grade item engineered for electronics operations.",
     "category": "electronics",
+    "subCategory": "SubCategory-1",
+    "brand": "NexaBrand-1",
+    "price": 49.99,
+    "costPrice": 32.49,
     "stockQuantity": 50,
+    "reorderLevel": 20,
+    "supplierId": "6a8bca5862985f737dee03e108",
+    "warehouseId": "65f000000000000000000000",
+    "sku": "SKU-ELE-ITM10001",
+    "barcode": "890123456880",
+    "unit": "pcs",
+    "status": "ACTIVE",
     "tags": [
-        "sensor",
-        "industrial"
+        "electronics",
+        "supply",
+        "grade-1"
     ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210"
-};
-
-    const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {
-      data: payload,
-      headers: {
-        'Content-Type': 'application/json',
-        'x-project-name': PROJECT_NAME
-      }
-    });
-
-    expect(response.status()).toBe(201);
-    const body = await response.json();
-    expect(body).toBeDefined();
-    expect(typeof body === 'object' && body !== null).toBeTruthy();
-    if (body.id || body._id || body.data?._id || body.data?.id) {
-      const capturedId = body.id || body._id || body.data?._id || body.data?.id;
-      if (typeof capturedId === 'string' && capturedId.length > 0) {
-        createdRecordId = capturedId;
-      }
-    }
-    expect(createdRecordId || body, 'Positive creation response must return valid record').toBeDefined();
-  });
-
-  /**
-   * Contextπ Generated Playwright API Test
-   * Test ID: TC-ITEMS-BIZ-004
-   * Category: BUSINESS_RULE
-   * Priority: CRITICAL
-   * Target Entity: items
-   * Source: BUSINESS_REQUIREMENT
-   * Source Ref: Requirement.BR-RULE-2 (items.itemCode)
-   * Reasoning: Statement requirement specifies exactly 8 digits/characters for items.itemCode; passing 7 digits returns HTTP 400
-   * Dependencies: []
-   */
-  test('TC-ITEMS-BIZ-004 — Business Rule: Invalid Digit Count (7 != 8) for \'itemCode\'', async ({ request }) => {
-    const payload = {
-    "itemCode": "1111111",
-    "itemName": "Synthetic Industrial Sensor",
-    "price": 149.99,
-    "category": "electronics",
-    "stockQuantity": 50,
-    "tags": [
-        "sensor",
-        "industrial"
-    ],
-    "supplierWebsite": "https://supplier.example.com",
-    "supportPhone": "9876543210"
+    "supplierWebsite": "https://supplier1.com",
+    "supportPhone": "18005559999",
+    "isDeleted": false
 };
 
     const response = await request.post(`${BASE_URL}${FORM_ROUTES.formCreate('items')}`, {

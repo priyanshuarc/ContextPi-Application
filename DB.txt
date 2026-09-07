@@ -1,0 +1,5 @@
+Project Name: NexaSupply
+MongoDB URI: mongodb://localhost:27017
+Database: nexasupply_db
+Target API: http://localhost:3000
+
